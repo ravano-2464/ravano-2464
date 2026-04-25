@@ -1,6 +1,6 @@
 <p align="center">
   <img
-    src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:00C9A7,50:4D96FF,100:FF6B6B&text=Ravano%20Akbar%20Widodo&fontColor=ffffff&fontSize=40&animation=fadeIn&desc=Programmer%20%7C%20Gamer%20%7C%20Security%20Enthusiast&descAlignY=60"
+    src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:00C9A7,50:4D96FF,100:FF6B6B&text=Ravano%20Akbar%20Widodo&fontColor=ffffff&fontSize=40&fontAlignY=40&animation=fadeIn&desc=Programmer%20%7C%20Gamer%20%7C%20Security%20Enthusiast&descAlignY=57"
     alt="Ravano Akbar Widodo header"
   />
 </p>
@@ -19,7 +19,7 @@
   <img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&logo=github&logoColor=white&label=Public%20Repos&color=4D96FF&query=public_repos&url=https://api.github.com/users/ravano-2464" alt="Public repositories" />
 </p>
 
-## About Me
+## 👨‍💻 About Me
 
 <table>
   <tr>
@@ -44,7 +44,7 @@
   </tr>
 </table>
 
-## Connect with Me
+## 🤝 Connect with Me
 
 <p align="left">
   <a href="https://www.linkedin.com/in/ravano-akbar-widodo/" target="_blank">
@@ -61,7 +61,7 @@
   </a>
 </p>
 
-## Language Snapshot (Public Repos)
+## 🧠 Language Snapshot (Public Repos)
 
 <p align="left">
   <img src="https://img.shields.io/badge/TypeScript-16%20repos-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
@@ -72,7 +72,7 @@
   <img src="https://img.shields.io/badge/PHP-1%20repo-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP" />
 </p>
 
-## Recently Active Repositories
+## 🚀 Recently Active Repositories
 
 | Repository | Main Language | Last Update |
 |---|---|---|
@@ -83,7 +83,7 @@
 | [Fake-Hacker-Interface-Wep-App](https://github.com/ravano-2464/Fake-Hacker-Interface-Wep-App) | TypeScript | 2026-04-11 |
 | [Gesture-Calculator](https://github.com/ravano-2464/Gesture-Calculator) | TypeScript | 2026-04-06 |
 
-## GitHub Dashboard
+## 📊 GitHub Dashboard
 
 <p align="center">
   <img
@@ -106,7 +106,7 @@
   />
 </p>
 
-## Activity Graph
+## 📈 Activity Graph
 
 <p align="center">
   <img
@@ -115,7 +115,7 @@
   />
 </p>
 
-## Contribution Snake
+## 🐍 Contribution Snake
 
 <p align="center">
   <img
