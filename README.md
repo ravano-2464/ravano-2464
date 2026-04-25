@@ -1,13 +1,48 @@
-# Hi there, I'm Ravano
-
-Welcome to my GitHub profile.
-
-<p align="left">
+<p align="center">
   <img
-    src="https://komarev.com/ghpvc/?username=ravano-2464&amp;label=Profile%20views&amp;color=0e75b6&amp;style=flat"
-    alt="Profile views ravano-2464"
+    src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:00C9A7,50:4D96FF,100:FF6B6B&text=Ravano%20Akbar%20Widodo&fontColor=ffffff&fontSize=40&animation=fadeIn&desc=Programmer%20%7C%20Gamer%20%7C%20Security%20Enthusiast&descAlignY=60"
+    alt="Ravano Akbar Widodo header"
   />
 </p>
+
+<p align="center">
+  <img
+    src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=800&color=4D96FF&center=true&vCenter=true&width=700&lines=Hi+there%2C+I'm+Ravano;Building+projects+in+public+on+GitHub;TypeScript+%7C+Java+%7C+Python+%7C+JavaScript"
+    alt="Typing introduction"
+  />
+</p>
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=ravano-2464&label=Profile%20Views&color=0e75b6&style=for-the-badge" alt="Profile views" />
+  <img src="https://img.shields.io/github/followers/ravano-2464?style=for-the-badge&logo=github&logoColor=white&label=Followers&color=2ea44f" alt="GitHub followers" />
+  <img src="https://img.shields.io/github/stars/ravano-2464?style=for-the-badge&logo=github&logoColor=white&label=Total%20Stars&color=f59e0b" alt="GitHub stars" />
+  <img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&logo=github&logoColor=white&label=Public%20Repos&color=4D96FF&query=public_repos&url=https://api.github.com/users/ravano-2464" alt="Public repositories" />
+</p>
+
+## About Me
+
+<table>
+  <tr>
+    <td><strong>Name</strong></td>
+    <td>Ravano Akbar Widodo</td>
+  </tr>
+  <tr>
+    <td><strong>Username</strong></td>
+    <td><a href="https://github.com/ravano-2464">@ravano-2464</a></td>
+  </tr>
+  <tr>
+    <td><strong>Location</strong></td>
+    <td>Jakarta, Indonesia</td>
+  </tr>
+  <tr>
+    <td><strong>Bio</strong></td>
+    <td>Programmer, Gamer, Hacker</td>
+  </tr>
+  <tr>
+    <td><strong>Focus</strong></td>
+    <td>Web apps, automation, and software experimentation</td>
+  </tr>
+</table>
 
 ## Connect with Me
 
@@ -26,36 +61,59 @@ Welcome to my GitHub profile.
   </a>
 </p>
 
-## GitHub Stats
+## Language Snapshot (Public Repos)
+
+<p align="left">
+  <img src="https://img.shields.io/badge/TypeScript-16%20repos-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/HTML-14%20repos-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
+  <img src="https://img.shields.io/badge/Java-9%20repos-007396?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
+  <img src="https://img.shields.io/badge/JavaScript-6%20repos-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000000" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/Python-2%20repos-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/PHP-1%20repo-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP" />
+</p>
+
+## Recently Active Repositories
+
+| Repository | Main Language | Last Update |
+|---|---|---|
+| [Personal-Portfolio](https://github.com/ravano-2464/Personal-Portfolio) | TypeScript | 2026-04-25 |
+| [Keyboard-Auto-Clicker](https://github.com/ravano-2464/Keyboard-Auto-Clicker) | JavaScript | 2026-04-22 |
+| [Sonara-Web-Apps](https://github.com/ravano-2464/Sonara-Web-Apps) | TypeScript | 2026-04-22 |
+| [Wifi-Security-Analyzer](https://github.com/ravano-2464/Wifi-Security-Analyzer) | Python | 2026-04-11 |
+| [Fake-Hacker-Interface-Wep-App](https://github.com/ravano-2464/Fake-Hacker-Interface-Wep-App) | TypeScript | 2026-04-11 |
+| [Gesture-Calculator](https://github.com/ravano-2464/Gesture-Calculator) | TypeScript | 2026-04-06 |
+
+## GitHub Dashboard
 
 <p align="center">
   <img
-    height="165"
-    src="https://github-readme-stats-sigma-five.vercel.app/api?username=ravano-2464&amp;show_icons=true&amp;include_all_commits=true&amp;hide_border=true&amp;theme=transparent&amp;custom_title=GitHub%20Stats%20%26%20Total%20Commits"
-    alt="GitHub stats ravano-2464"
+    height="170"
+    src="https://github-readme-stats.vercel.app/api?username=ravano-2464&show_icons=true&include_all_commits=true&hide_border=true&theme=tokyonight&rank_icon=github"
+    alt="GitHub stats"
   />
   <img
-    height="165"
-    src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=ravano-2464&amp;layout=compact&amp;langs_count=8&amp;hide_border=true&amp;theme=transparent"
-    alt="Top languages ravano-2464"
+    height="170"
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=ravano-2464&layout=compact&langs_count=8&hide_border=true&theme=tokyonight"
+    alt="Top languages"
   />
 </p>
 
 <p align="center">
   <img
-    height="165"
-    src="https://streak-stats.demolab.com?user=ravano-2464&amp;hide_border=true"
-    alt="GitHub streak ravano-2464"
+    height="170"
+    src="https://streak-stats.demolab.com?user=ravano-2464&theme=tokyonight&hide_border=true"
+    alt="GitHub streak"
   />
 </p>
 
-## Most Used Languages
+## Activity Graph
 
-The `Top Languages` card above automatically shows the languages I use most based on my public GitHub repositories.
-
-The GitHub stats card above is also configured to show my total commit count, not just commits from the current year.
-
-If I want the result to be more accurate, I just need to keep pushing projects in the languages I want to appear on my profile.
+<p align="center">
+  <img
+    src="https://github-readme-activity-graph.vercel.app/graph?username=ravano-2464&theme=tokyo-night&hide_border=true&area=true"
+    alt="GitHub activity graph"
+  />
+</p>
 
 ## Contribution Snake
 
@@ -66,11 +124,8 @@ If I want the result to be more accurate, I just need to keep pushing projects i
   />
 </p>
 
-The snake animation will appear after the `Generate Snake` GitHub Action runs successfully for the first time and creates the `output` branch.
+---
 
-<!--
-Notes:
-- Replace `ravano-2464` if your GitHub username is different.
-- Replace `ravano-2464/ravano-2464` in the snake image URL if your profile repository path is different.
-- Public stats services usually read public repositories, not private ones.
--->
+<p align="center">
+  Open for collaboration, idea-sharing, and building cool projects.
+</p>
