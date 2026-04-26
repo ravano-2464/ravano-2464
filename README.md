@@ -104,12 +104,11 @@
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
 </p>
 
-Detected from repositories such as `Personal-Portfolio`, `Sonara-Web-Apps`, `Gesture-Calculator`, `Wifi-Security-Analyzer`, `Startup-Empire`, `Keyboard-Auto-Clicker`, and `Fake-Hacker-Interface-Wep-App`.
-
 ## 🚀 Recently Active Repositories
 
 | Repository | Main Language | Last Update |
 |---|---|---|
+| [CatatUangku](https://github.com/ravano-2464/CatatUangku) | TypeScript | 2026-04-26 |
 | [Personal-Portfolio](https://github.com/ravano-2464/Personal-Portfolio) | TypeScript | 2026-04-25 |
 | [Keyboard-Auto-Clicker](https://github.com/ravano-2464/Keyboard-Auto-Clicker) | JavaScript | 2026-04-22 |
 | [Sonara-Web-Apps](https://github.com/ravano-2464/Sonara-Web-Apps) | TypeScript | 2026-04-22 |
