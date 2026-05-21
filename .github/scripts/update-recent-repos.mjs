@@ -13,10 +13,24 @@ const limit = Number.parseInt(process.env.RECENT_REPO_LIMIT ?? "7", 10);
 function toDateString(value) {
   if (!value) return "-";
   const date = new Date(value);
-  const day = String(date.getUTCDate()).padStart(2, "0");
-  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
-  const year = String(date.getUTCFullYear());
-  return `${day}-${month}-${year}`;
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const day = date.getUTCDate();
+  const month = months[date.getUTCMonth()];
+  const year = date.getUTCFullYear();
+  return `${day} ${month} ${year}`;
 }
 
 function buildTable(repositories) {
