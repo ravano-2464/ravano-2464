@@ -12,7 +12,11 @@ const limit = Number.parseInt(process.env.RECENT_REPO_LIMIT ?? "7", 10);
 
 function toDateString(value) {
   if (!value) return "-";
-  return new Date(value).toISOString().slice(0, 10);
+  const date = new Date(value);
+  const day = String(date.getUTCDate()).padStart(2, "0");
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const year = String(date.getUTCFullYear());
+  return `${day}-${month}-${year}`;
 }
 
 function buildTable(repositories) {
