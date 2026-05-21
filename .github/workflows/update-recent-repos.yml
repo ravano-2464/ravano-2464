@@ -1,0 +1,41 @@
+name: Update Recent Repositories
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */8 * * *"
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - .github/scripts/update-recent-repos.mjs
+      - .github/workflows/update-recent-repos.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Update README recent repositories
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node .github/scripts/update-recent-repos.mjs
+
+      - name: Commit and push if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(readme): update recently active repositories"
+          file_pattern: README.md

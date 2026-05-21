@@ -106,27 +106,29 @@
 
 ## 🚀 Recently Active Repositories
 
+<!-- RECENT_REPOS:START -->
 | Repository | Main Language | Last Update |
 |---|---|---|
+| [VeriText](https://github.com/ravano-2464/VeriText) | TypeScript | 2026-05-21 |
+| [Keyboard-Auto-Clicker](https://github.com/ravano-2464/Keyboard-Auto-Clicker) | JavaScript | 2026-05-20 |
+| [Sonara-Web-Apps](https://github.com/ravano-2464/Sonara-Web-Apps) | TypeScript | 2026-05-20 |
+| [Media-Forge](https://github.com/ravano-2464/Media-Forge) | TypeScript | 2026-05-18 |
+| [Ultimate-SaaS-Boilerplate](https://github.com/ravano-2464/Ultimate-SaaS-Boilerplate) | TypeScript | 2026-05-12 |
 | [CatatUangku](https://github.com/ravano-2464/CatatUangku) | TypeScript | 2026-04-26 |
 | [Personal-Portfolio](https://github.com/ravano-2464/Personal-Portfolio) | TypeScript | 2026-04-25 |
-| [Keyboard-Auto-Clicker](https://github.com/ravano-2464/Keyboard-Auto-Clicker) | JavaScript | 2026-04-22 |
-| [Sonara-Web-Apps](https://github.com/ravano-2464/Sonara-Web-Apps) | TypeScript | 2026-04-22 |
-| [Wifi-Security-Analyzer](https://github.com/ravano-2464/Wifi-Security-Analyzer) | Python | 2026-04-11 |
-| [Fake-Hacker-Interface-Wep-App](https://github.com/ravano-2464/Fake-Hacker-Interface-Wep-App) | TypeScript | 2026-04-11 |
-| [Gesture-Calculator](https://github.com/ravano-2464/Gesture-Calculator) | TypeScript | 2026-04-06 |
+<!-- RECENT_REPOS:END -->
 
 ## 📊 GitHub Dashboard
 
 <p align="center">
   <img
     height="170"
-    src="https://github-readme-stats.vercel.app/api?username=ravano-2464&show_icons=true&include_all_commits=true&hide_border=true&theme=tokyonight&rank_icon=github"
+    src="https://github-readme-stats-sigma-five.vercel.app/api?username=ravano-2464&show_icons=true&include_all_commits=true&hide_border=true&theme=tokyonight&rank_icon=github"
     alt="GitHub stats"
   />
   <img
     height="170"
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=ravano-2464&layout=compact&langs_count=8&hide_border=true&theme=tokyonight"
+    src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=ravano-2464&layout=compact&langs_count=8&hide_border=true&theme=tokyonight"
     alt="Top languages"
   />
 </p>
