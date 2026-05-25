@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=ravano-2464&label=Profile%20Views&color=0e75b6&style=for-the-badge" alt="Profile views" />
+  <img src="https://badges.pufler.dev/visits/ravano-2464/ravano-2464?style=for-the-badge&label=PROFILE%20VIEWS&color=0e75b6&logo=github&logoColor=white" alt="Profile views" />
   <img src="https://img.shields.io/github/followers/ravano-2464?style=for-the-badge&logo=github&logoColor=white&label=Followers&color=2ea44f" alt="GitHub followers" />
   <img src="https://img.shields.io/github/stars/ravano-2464?style=for-the-badge&logo=github&logoColor=white&label=Total%20Stars&color=f59e0b" alt="GitHub stars" />
   <img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&logo=github&logoColor=white&label=Public%20Repos&color=4D96FF&query=public_repos&url=https://api.github.com/users/ravano-2464" alt="Public repositories" />
@@ -61,16 +61,25 @@
   </a>
 </p>
 
-## 🧠 Language Snapshot (Public Repos)
+## 🧠 Language Snapshot
+
+<!-- LANGUAGE_SNAPSHOT:START -->
+_Automatically generated from active, non-fork public repositories. Counts represent each repository's primary language._
 
 <p align="left">
-  <img src="https://img.shields.io/badge/TypeScript-16%20repos-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/TypeScript-20%20repos-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/HTML-14%20repos-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
   <img src="https://img.shields.io/badge/Java-9%20repos-007396?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
+  <img src="https://img.shields.io/badge/Handlebars-6%20repos-6E7781?style=for-the-badge&logo=github&logoColor=white" alt="Handlebars" />
   <img src="https://img.shields.io/badge/JavaScript-6%20repos-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000000" alt="JavaScript" />
   <img src="https://img.shields.io/badge/Python-2%20repos-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/PHP-1%20repo-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP" />
 </p>
+
+- **Frontend repositories:** 45
+- **Backend repositories:** 13
+- **Other or mixed repositories:** 1
+- **Total repositories analyzed:** 59
+<!-- LANGUAGE_SNAPSHOT:END -->
 
 ## 🛠️ Tech Stack (From My Projects)
 

@@ -1,4 +1,4 @@
-name: Update Recent Repositories
+name: Update README Metrics
 
 on:
   workflow_dispatch:
@@ -29,7 +29,7 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Update README recent repositories
+      - name: Update README metrics
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node .github/scripts/update-recent-repos.mjs
@@ -37,5 +37,5 @@ jobs:
       - name: Commit and push if changed
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore(readme): update recently active repositories"
+          commit_message: "chore(readme): update profile metrics"
           file_pattern: README.md
