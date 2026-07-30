@@ -213,13 +213,13 @@ From architecture design to deployment pipelines, I prioritize clean boundaries,
 <!-- RECENT_REPOS:START -->
 | Repository | Main Language | Last Update |
 |---|---|---|
-| [VeriText](https://github.com/ravano-2464/VeriText) | TypeScript | 21 May 2026 |
+| [Veritext-Frontend](https://github.com/ravano-2464/Veritext-Frontend) | TypeScript | 30 July 2026 |
+| [VeriText-Backend](https://github.com/ravano-2464/VeriText-Backend) | TypeScript | 30 July 2026 |
 | [Keyboard-Auto-Clicker](https://github.com/ravano-2464/Keyboard-Auto-Clicker) | JavaScript | 20 May 2026 |
 | [Sonara-Web-Apps](https://github.com/ravano-2464/Sonara-Web-Apps) | TypeScript | 20 May 2026 |
 | [Media-Forge](https://github.com/ravano-2464/Media-Forge) | TypeScript | 18 May 2026 |
 | [Ultimate-SaaS-Boilerplate](https://github.com/ravano-2464/Ultimate-SaaS-Boilerplate) | TypeScript | 12 May 2026 |
 | [CatatUangku](https://github.com/ravano-2464/CatatUangku) | TypeScript | 26 April 2026 |
-| [Personal-Portfolio](https://github.com/ravano-2464/Personal-Portfolio) | TypeScript | 25 April 2026 |
 <!-- RECENT_REPOS:END -->
 
 ## 📊 GitHub Analytics
@@ -235,7 +235,7 @@ From architecture design to deployment pipelines, I prioritize clean boundaries,
 _Automatically generated from active, non-fork public repositories. Counts represent each repository's primary language._
 
 <p align="left">
-  <img src="https://img.shields.io/badge/TypeScript-20%20repos-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/TypeScript-21%20repos-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/HTML-14%20repos-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
   <img src="https://img.shields.io/badge/Java-9%20repos-007396?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
   <img src="https://img.shields.io/badge/Handlebars-6%20repos-6E7781?style=for-the-badge&logo=github&logoColor=white" alt="Handlebars" />
@@ -244,9 +244,9 @@ _Automatically generated from active, non-fork public repositories. Counts repre
 </p>
 
 - **Frontend repositories:** 45
-- **Backend repositories:** 13
+- **Backend repositories:** 14
 - **Other or mixed repositories:** 1
-- **Total repositories analyzed:** 59
+- **Total repositories analyzed:** 60
 <!-- LANGUAGE_SNAPSHOT:END -->
 
 <div align="center">
@@ -346,7 +346,7 @@ _Automatically generated from active, non-fork public repositories. Counts repre
 
 <div align="center">
   <!-- TROPHY_IMAGE:START -->
-<img src="./assets/github-trophy.svg?v=325eadc9cf4d" width="98%" alt="GitHub Trophy" />
+<img src="./assets/github-trophy.svg?v=1e687d158b6c" width="98%" alt="GitHub Trophy" />
 <!-- TROPHY_IMAGE:END -->
 </div>
 
