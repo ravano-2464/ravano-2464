@@ -488,17 +488,17 @@ function metricStatus(value, thresholds) {
 function rankPalette(rank) {
   switch (rank) {
     case "SS":
-      return { fill: "#FBBF24", text: "#2B1700", glow: "#F59E0B" };
+      return { fill: "#39ff14", text: "#000000", glow: "#39ff14" };
     case "S":
-      return { fill: "#2DD4BF", text: "#052E2B", glow: "#14B8A6" };
+      return { fill: "#00ff41", text: "#000000", glow: "#00ff41" };
     case "AA":
-      return { fill: "#38BDF8", text: "#082F49", glow: "#0EA5E9" };
+      return { fill: "#10b981", text: "#ffffff", glow: "#10b981" };
     case "A":
-      return { fill: "#60A5FA", text: "#172554", glow: "#2563EB" };
+      return { fill: "#059669", text: "#ffffff", glow: "#059669" };
     case "B":
-      return { fill: "#CBD5E1", text: "#0F172A", glow: "#94A3B8" };
+      return { fill: "#047857", text: "#ffffff", glow: "#047857" };
     default:
-      return { fill: "#64748B", text: "#F8FAFC", glow: "#475569" };
+      return { fill: "#1f2937", text: "#9ca3af", glow: "#1f2937" };
   }
 }
 
@@ -530,6 +530,8 @@ function buildTrophyMetrics(user, repositories) {
     null,
   );
 
+  const topRepoName = topRepository?.name ? truncateText(topRepository.name, 18) : "";
+
   return [
     {
       label: "Followers",
@@ -537,7 +539,7 @@ function buildTrophyMetrics(user, repositories) {
       displayValue: formatCompactNumber(user.followers ?? 0),
       hint: "People following the profile",
       thresholds: [5, 10, 25, 50, 100],
-      accent: "#2563EB",
+      accent: "#00ff41",
       icon: "followers",
     },
     {
@@ -546,25 +548,25 @@ function buildTrophyMetrics(user, repositories) {
       displayValue: formatCompactNumber(repositories.length),
       hint: "Active public repositories",
       thresholds: [5, 15, 30, 50, 75],
-      accent: "#0EA5E9",
+      accent: "#39ff14",
       icon: "repositories",
     },
     {
       label: "Total Stars",
       value: totalStars,
       displayValue: formatCompactNumber(totalStars),
-      hint: "Stars collected across projects",
+      hint: "Stars collected on projects",
       thresholds: [5, 15, 30, 75, 150],
-      accent: "#F59E0B",
+      accent: "#10b981",
       icon: "stars",
     },
     {
       label: "Total Forks",
       value: totalForks,
       displayValue: formatCompactNumber(totalForks),
-      hint: "Community forks on public repos",
+      hint: "Forks of public repositories",
       thresholds: [1, 5, 10, 25, 50],
-      accent: "#14B8A6",
+      accent: "#059669",
       icon: "forks",
     },
     {
@@ -573,27 +575,27 @@ function buildTrophyMetrics(user, repositories) {
       displayValue: formatCompactNumber(languageCount),
       hint: "Primary languages shipped",
       thresholds: [2, 4, 6, 8, 10],
-      accent: "#8B5CF6",
+      accent: "#34d399",
       icon: "languages",
     },
     {
       label: `Active ${recentActivityWindowDays}d`,
       value: activeRecent,
       displayValue: formatCompactNumber(activeRecent),
-      hint: "Repos updated in the recent window",
+      hint: `Repos updated in last ${recentActivityWindowDays} days`,
       thresholds: [1, 3, 5, 8, 12],
-      accent: "#22C55E",
+      accent: "#a7f3d0",
       icon: "activity",
     },
     {
       label: "Top Repo Star",
       value: topRepository?.stargazers_count ?? 0,
       displayValue: formatCompactNumber(topRepository?.stargazers_count ?? 0),
-      hint: topRepository?.name
-        ? `Most-starred repo: ${topRepository.name}`
-        : "Most-starred repo will appear here",
+      hint: topRepoName
+        ? `Most-starred: ${topRepoName}`
+        : "No starred repos found",
       thresholds: [1, 5, 10, 25, 50],
-      accent: "#EC4899",
+      accent: "#00ff88",
       icon: "crown",
     },
   ].map((metric) => ({
@@ -657,30 +659,42 @@ function buildMetricIcon(icon, accent) {
 }
 
 function buildCard(metric, x, y, index, width, height) {
-  const hintY = 120;
-  const barX = 20;
-  const barY = height - 36;
-  const barWidth = width - 40;
-  const barFillWidth = Math.max(12, Math.round(barWidth * metric.progress));
-  const statusY = height - 14;
+  const cardPadding = 22;
+  const hintY = 128;
+  const barX = cardPadding;
+  const barY = height - 42;
+  const barWidth = width - (cardPadding * 2);
+  const barFillWidth = Math.max(10, Math.round(barWidth * metric.progress));
+  const statusY = height - 18;
   const rankStyle = rankPalette(metric.rank);
 
   return `
     <g transform="translate(${x} ${y})">
-      <rect x="0" y="0" width="${width}" height="${height}" rx="24" fill="url(#card-bg-${index})" stroke="${metric.accent}" stroke-opacity="0.22" />
+      <!-- Card background with glow drop-shadow -->
+      <rect x="0" y="0" width="${width}" height="${height}" rx="16" fill="url(#card-bg-${index})" stroke="${metric.accent}" stroke-opacity="0.25" stroke-width="1.2" filter="url(#card-shadow)" />
+      
+      <!-- Icon Container -->
       <circle cx="34" cy="34" r="18" fill="${metric.accent}" fill-opacity="0.16" />
       <circle cx="34" cy="34" r="17.2" fill="none" stroke="${metric.accent}" stroke-opacity="0.35" />
       <g transform="translate(14 14)">
         ${buildMetricIcon(metric.icon, metric.accent)}
       </g>
-      <rect x="${width - 58}" y="16" width="40" height="24" rx="12" fill="${rankStyle.fill}" />
-      <text x="${width - 38}" y="31" text-anchor="middle" font-size="11" font-weight="800" fill="${rankStyle.text}">${escapeXml(metric.rank)}</text>
-      <text x="18" y="68" font-size="11" font-weight="700" fill="#93C5FD" letter-spacing="0.8">${escapeXml(metric.label.toUpperCase())}</text>
-      <text x="18" y="104" font-size="31" font-weight="800" fill="#F8FAFC">${escapeXml(metric.displayValue)}</text>
-      <text x="18" y="${hintY}" font-size="11" fill="#94A3B8">${escapeXml(truncateText(metric.hint, 32))}</text>
-      <rect x="${barX}" y="${barY}" width="${barWidth}" height="9" rx="4.5" fill="#0B1220" fill-opacity="0.82" />
-      <rect x="${barX}" y="${barY}" width="${barFillWidth}" height="9" rx="4.5" fill="${metric.accent}" />
-      <text x="18" y="${statusY}" font-size="10" font-weight="700" fill="${rankStyle.fill}">${escapeXml(metric.status)}</text>
+      
+      <!-- Rank Pill Badge -->
+      <rect x="${width - 62}" y="20" width="44" height="24" rx="12" fill="${rankStyle.fill}" />
+      <text x="${width - 40}" y="35.5" text-anchor="middle" font-size="11" font-weight="800" fill="${rankStyle.text}" letter-spacing="0.5">${escapeXml(metric.rank)}</text>
+      
+      <!-- Content -->
+      <text x="${cardPadding}" y="74" font-size="11" font-weight="700" fill="#A7F3D0" letter-spacing="0.8">${escapeXml(metric.label.toUpperCase())}</text>
+      <text x="${cardPadding}" y="112" font-size="32" font-weight="800" fill="#F8FAFC">${escapeXml(metric.displayValue)}</text>
+      <text x="${cardPadding}" y="${hintY}" font-size="11" fill="#94A3B8">${escapeXml(truncateText(metric.hint, 38))}</text>
+      
+      <!-- Progress Bar -->
+      <rect x="${barX}" y="${barY}" width="${barWidth}" height="7" rx="3.5" fill="#010601" fill-opacity="0.9" stroke="${metric.accent}" stroke-opacity="0.08" />
+      <rect x="${barX}" y="${barY}" width="${barFillWidth}" height="7" rx="3.5" fill="${metric.accent}" />
+      
+      <!-- Status Text -->
+      <text x="${cardPadding}" y="${statusY}" font-size="10" font-weight="800" fill="${rankStyle.fill}" opacity="0.9" letter-spacing="0.5">${escapeXml(metric.status)}</text>
     </g>`;
 }
 
@@ -701,12 +715,12 @@ function getTrophyRowSizes(count) {
 function buildTrophySvg(username, user, repositories) {
   const metrics = buildTrophyMetrics(user, repositories);
   const width = 900;
-  const cardWidth = 220;
-  const cardHeight = 170;
+  const cardWidth = 260;
+  const cardHeight = 185;
   const gap = 26;
   const rowGap = 26;
   const contentTop = 140;
-  const footerSpace = 58;
+  const footerSpace = 68;
   const rowSizes = getTrophyRowSizes(metrics.length);
   const totalCardHeight =
     rowSizes.length * cardHeight + (rowSizes.length - 1) * rowGap;
@@ -715,7 +729,7 @@ function buildTrophySvg(username, user, repositories) {
     .map(
       (metric, index) => `
       <linearGradient id="card-bg-${index}" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#111C2F" />
+        <stop offset="0%" stop-color="#051205" />
         <stop offset="100%" stop-color="${metric.accent}" stop-opacity="0.16" />
       </linearGradient>`,
     )
@@ -745,15 +759,41 @@ function buildTrophySvg(username, user, repositories) {
   <title id="title">${escapeXml(username)} GitHub trophy board</title>
   <desc id="desc">Auto-generated GitHub achievement cards based on public profile metrics.</desc>
   <defs>
+    <style>
+      .glow-circle-1 {
+        animation: pulse-1 8s ease-in-out infinite;
+      }
+      .glow-circle-2 {
+        animation: pulse-2 10s ease-in-out infinite;
+      }
+      .glow-circle-3 {
+        animation: pulse-3 7s ease-in-out infinite;
+      }
+      @keyframes pulse-1 {
+        0%, 100% { fill-opacity: 0.03; }
+        50% { fill-opacity: 0.08; }
+      }
+      @keyframes pulse-2 {
+        0%, 100% { fill-opacity: 0.04; }
+        50% { fill-opacity: 0.09; }
+      }
+      @keyframes pulse-3 {
+        0%, 100% { fill-opacity: 0.02; }
+        50% { fill-opacity: 0.07; }
+      }
+    </style>
+    <filter id="card-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
     <linearGradient id="board-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#081120" />
-      <stop offset="52%" stop-color="#0F172A" />
-      <stop offset="100%" stop-color="#111827" />
+      <stop offset="0%" stop-color="#020802" />
+      <stop offset="52%" stop-color="#0b1a0b" />
+      <stop offset="100%" stop-color="#020802" />
     </linearGradient>
     <linearGradient id="header-glow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38BDF8" />
-      <stop offset="50%" stop-color="#60A5FA" />
-      <stop offset="100%" stop-color="#22C55E" />
+      <stop offset="0%" stop-color="#00FF41" />
+      <stop offset="50%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#39FF14" />
     </linearGradient>
     <linearGradient id="trophy-gold" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#FDE68A" />
@@ -762,14 +802,14 @@ function buildTrophySvg(username, user, repositories) {
     ${gradients}
   </defs>
   <rect x="0" y="0" width="${width}" height="${height}" rx="34" fill="url(#board-bg)" />
-  <circle cx="120" cy="36" r="110" fill="#0EA5E9" fill-opacity="0.09" />
-  <circle cx="804" cy="${height - 78}" r="132" fill="#2563EB" fill-opacity="0.08" />
-  <circle cx="748" cy="58" r="90" fill="#22C55E" fill-opacity="0.06" />
-  <rect x="28" y="28" width="${width - 56}" height="${height - 56}" rx="28" fill="none" stroke="#38BDF8" stroke-opacity="0.16" />
-  <g font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif">
-    <text x="42" y="56" font-size="14" font-weight="700" fill="#38BDF8" letter-spacing="1.4">AUTO-UPDATED LOCAL TROPHIES</text>
+  <circle cx="120" cy="36" r="110" fill="#00FF41" fill-opacity="0.05" class="glow-circle-1" />
+  <circle cx="804" cy="${height - 78}" r="132" fill="#10B981" fill-opacity="0.05" class="glow-circle-2" />
+  <circle cx="748" cy="58" r="90" fill="#39FF14" fill-opacity="0.04" class="glow-circle-3" />
+  <rect x="28" y="28" width="${width - 56}" height="${height - 56}" rx="28" fill="none" stroke="#00FF41" stroke-opacity="0.16" />
+  <g font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+    <text x="42" y="56" font-size="14" font-weight="700" fill="#00FF41" letter-spacing="1.4">AUTO-UPDATED LOCAL TROPHIES</text>
     <text x="42" y="88" font-size="30" font-weight="800" fill="#F8FAFC">GitHub Trophy Vault</text>
-    <text x="42" y="108" font-size="13" fill="#94A3B8">@${escapeXml(username)} | sourced from public GitHub API</text>
+    <text x="42" y="108" font-size="13" fill="#00FF41" opacity="0.6">@${escapeXml(username)} | sourced from public GitHub API</text>
     <rect x="42" y="120" width="250" height="4" rx="2" fill="url(#header-glow)" fill-opacity="0.92" />
     <g transform="translate(800 70)">
       <path d="M-22 -18h44v11c0 17-10 31-22 36-12-5-22-19-22-36v-11z" fill="url(#trophy-gold)" />
@@ -779,7 +819,7 @@ function buildTrophySvg(username, user, repositories) {
       <rect x="-20" y="30" width="40" height="10" rx="4" fill="#B45309" />
     </g>
     ${cards.join("")}
-    <text x="42" y="${height - 28}" font-size="12" fill="#64748B">Self-healing trophy asset. No external trophy dependency required.</text>
+    <text x="42" y="${height - 40}" font-size="12" fill="#64748B">Self-healing trophy asset. No external trophy dependency required.</text>
   </g>
 </svg>
 `;
