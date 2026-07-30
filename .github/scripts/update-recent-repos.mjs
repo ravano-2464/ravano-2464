@@ -1,10 +1,15 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
+import { dirname } from "node:path";
 
 const README_PATH = "README.md";
+const TROPHY_ASSET_PATH = "assets/github-trophy.svg";
 const RECENT_REPOS_START_MARKER = "<!-- RECENT_REPOS:START -->";
 const RECENT_REPOS_END_MARKER = "<!-- RECENT_REPOS:END -->";
 const LANGUAGE_SNAPSHOT_START_MARKER = "<!-- LANGUAGE_SNAPSHOT:START -->";
 const LANGUAGE_SNAPSHOT_END_MARKER = "<!-- LANGUAGE_SNAPSHOT:END -->";
+const TROPHY_IMAGE_START_MARKER = "<!-- TROPHY_IMAGE:START -->";
+const TROPHY_IMAGE_END_MARKER = "<!-- TROPHY_IMAGE:END -->";
 
 const owner =
   process.env.GITHUB_REPOSITORY_OWNER ??
@@ -12,6 +17,10 @@ const owner =
   "ravano-2464";
 const recentRepoLimit = Number.parseInt(process.env.RECENT_REPO_LIMIT ?? "7", 10);
 const topLanguageLimit = Number.parseInt(process.env.TOP_LANGUAGE_LIMIT ?? "6", 10);
+const recentActivityWindowDays = Number.parseInt(
+  process.env.RECENT_ACTIVITY_WINDOW_DAYS ?? "90",
+  10,
+);
 
 const FRONTEND_LANGUAGES = new Set([
   "HTML",
@@ -149,11 +158,21 @@ function escapeRegExp(text) {
   return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-function replaceBlock(content, startMarker, endMarker, replacement) {
+function replaceBlock(
+  content,
+  startMarker,
+  endMarker,
+  replacement,
+  { strict = false } = {},
+) {
   if (!content.includes(startMarker) || !content.includes(endMarker)) {
-    throw new Error(
-      `Markers not found in README. Expected ${startMarker} and ${endMarker}.`,
-    );
+    if (strict) {
+      throw new Error(
+        `Markers not found in README. Expected ${startMarker} and ${endMarker}.`,
+      );
+    }
+
+    return { content, replaced: false };
   }
 
   const block = `${startMarker}\n${replacement}\n${endMarker}`;
@@ -162,10 +181,40 @@ function replaceBlock(content, startMarker, endMarker, replacement) {
     "m",
   );
 
-  return content.replace(pattern, block);
+  return {
+    content: content.replace(pattern, block),
+    replaced: true,
+  };
 }
 
-async function fetchRepositories(username) {
+async function readTextIfExists(path) {
+  try {
+    return await readFile(path, "utf8");
+  } catch (error) {
+    if (error?.code === "ENOENT") {
+      return null;
+    }
+
+    throw error;
+  }
+}
+
+async function writeTextIfChanged(path, nextContent) {
+  const previousContent = await readTextIfExists(path);
+  if (previousContent === nextContent) {
+    return false;
+  }
+
+  await mkdir(dirname(path), { recursive: true });
+  await writeFile(path, nextContent, "utf8");
+  return true;
+}
+
+function createAssetVersion(content) {
+  return createHash("sha1").update(content).digest("hex").slice(0, 12);
+}
+
+function buildGitHubHeaders() {
   const headers = {
     Accept: "application/vnd.github+json",
     "User-Agent": "readme-profile-updater",
@@ -175,6 +224,25 @@ async function fetchRepositories(username) {
     headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
   }
 
+  return headers;
+}
+
+async function fetchGitHubJson(url) {
+  const response = await fetch(url, { headers: buildGitHubHeaders() });
+
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`GitHub API failed (${response.status}): ${body}`);
+  }
+
+  return response.json();
+}
+
+function buildTrophyImageMarkup(cacheBuster) {
+  return `<img src="./${TROPHY_ASSET_PATH}?v=${cacheBuster}" width="98%" alt="GitHub Trophy" />`;
+}
+
+async function fetchRepositories(username) {
   const repositories = [];
   let page = 1;
 
@@ -186,13 +254,7 @@ async function fetchRepositories(username) {
     url.searchParams.set("type", "owner");
     url.searchParams.set("page", String(page));
 
-    const response = await fetch(url, { headers });
-    if (!response.ok) {
-      const body = await response.text();
-      throw new Error(`GitHub API failed (${response.status}): ${body}`);
-    }
-
-    const data = await response.json();
+    const data = await fetchGitHubJson(url);
     if (!Array.isArray(data)) {
       throw new Error("Unexpected GitHub API response.");
     }
@@ -208,6 +270,18 @@ async function fetchRepositories(username) {
   return repositories
     .filter((repo) => !repo.fork && !repo.archived && repo.name !== username)
     .sort((a, b) => Date.parse(b.pushed_at ?? b.updated_at ?? 0) - Date.parse(a.pushed_at ?? a.updated_at ?? 0));
+}
+
+async function fetchUserProfile(username) {
+  const profile = await fetchGitHubJson(
+    new URL(`https://api.github.com/users/${username}`),
+  );
+
+  if (!profile || typeof profile !== "object") {
+    throw new Error("Unexpected GitHub user profile response.");
+  }
+
+  return profile;
 }
 
 function countLanguages(repositories) {
@@ -345,29 +419,441 @@ function buildLanguageSnapshot(repositories) {
   ].join("\n");
 }
 
+const compactNumberFormatter = new Intl.NumberFormat("en", {
+  notation: "compact",
+  maximumFractionDigits: 1,
+});
+
+function formatCompactNumber(value) {
+  return compactNumberFormatter.format(value);
+}
+
+function escapeXml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&apos;");
+}
+
+function truncateText(value, maxLength) {
+  const text = String(value);
+  if (text.length <= maxLength) {
+    return text;
+  }
+
+  return `${text.slice(0, maxLength - 3)}...`;
+}
+
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function rankMetric(value, thresholds) {
+  if (value >= thresholds[4]) return "SS";
+  if (value >= thresholds[3]) return "S";
+  if (value >= thresholds[2]) return "AA";
+  if (value >= thresholds[1]) return "A";
+  if (value >= thresholds[0]) return "B";
+  return "C";
+}
+
+function metricProgress(value, thresholds) {
+  const ceiling = thresholds[thresholds.length - 1] ?? 1;
+  return clamp(value / ceiling, 0, 1);
+}
+
+function nextThreshold(value, thresholds) {
+  return thresholds.find((threshold) => value < threshold) ?? null;
+}
+
+function nextRank(value, thresholds) {
+  const order = ["B", "A", "AA", "S", "SS"];
+  const index = thresholds.findIndex((threshold) => value < threshold);
+  return index === -1 ? null : order[index];
+}
+
+function metricStatus(value, thresholds) {
+  const upcomingThreshold = nextThreshold(value, thresholds);
+  const upcomingRank = nextRank(value, thresholds);
+
+  if (upcomingThreshold === null || upcomingRank === null) {
+    return "MAX TIER UNLOCKED";
+  }
+
+  return `${upcomingThreshold - value} TO ${upcomingRank}`;
+}
+
+function rankPalette(rank) {
+  switch (rank) {
+    case "SS":
+      return { fill: "#FBBF24", text: "#2B1700", glow: "#F59E0B" };
+    case "S":
+      return { fill: "#2DD4BF", text: "#052E2B", glow: "#14B8A6" };
+    case "AA":
+      return { fill: "#38BDF8", text: "#082F49", glow: "#0EA5E9" };
+    case "A":
+      return { fill: "#60A5FA", text: "#172554", glow: "#2563EB" };
+    case "B":
+      return { fill: "#CBD5E1", text: "#0F172A", glow: "#94A3B8" };
+    default:
+      return { fill: "#64748B", text: "#F8FAFC", glow: "#475569" };
+  }
+}
+
+function buildTrophyMetrics(user, repositories) {
+  const totalStars = repositories.reduce(
+    (sum, repo) => sum + (repo.stargazers_count ?? 0),
+    0,
+  );
+  const totalForks = repositories.reduce(
+    (sum, repo) => sum + (repo.forks_count ?? 0),
+    0,
+  );
+  const languageCount = new Set(
+    repositories.map((repo) => repo.language).filter(Boolean),
+  ).size;
+  const recentWindowStart = Date.now() - recentActivityWindowDays * 24 * 60 * 60 * 1000;
+  const activeRecent = repositories.filter((repo) => {
+    const lastPush = Date.parse(repo.pushed_at ?? repo.updated_at ?? 0);
+    return Number.isFinite(lastPush) && lastPush >= recentWindowStart;
+  }).length;
+  const topRepository = repositories.reduce(
+    (best, repo) => {
+      if (!best || (repo.stargazers_count ?? 0) > (best.stargazers_count ?? 0)) {
+        return repo;
+      }
+
+      return best;
+    },
+    null,
+  );
+
+  return [
+    {
+      label: "Followers",
+      value: user.followers ?? 0,
+      displayValue: formatCompactNumber(user.followers ?? 0),
+      hint: "People following the profile",
+      thresholds: [5, 10, 25, 50, 100],
+      accent: "#2563EB",
+      icon: "followers",
+    },
+    {
+      label: "Repositories",
+      value: repositories.length,
+      displayValue: formatCompactNumber(repositories.length),
+      hint: "Active public repositories",
+      thresholds: [5, 15, 30, 50, 75],
+      accent: "#0EA5E9",
+      icon: "repositories",
+    },
+    {
+      label: "Total Stars",
+      value: totalStars,
+      displayValue: formatCompactNumber(totalStars),
+      hint: "Stars collected across projects",
+      thresholds: [5, 15, 30, 75, 150],
+      accent: "#F59E0B",
+      icon: "stars",
+    },
+    {
+      label: "Total Forks",
+      value: totalForks,
+      displayValue: formatCompactNumber(totalForks),
+      hint: "Community forks on public repos",
+      thresholds: [1, 5, 10, 25, 50],
+      accent: "#14B8A6",
+      icon: "forks",
+    },
+    {
+      label: "Languages",
+      value: languageCount,
+      displayValue: formatCompactNumber(languageCount),
+      hint: "Primary languages shipped",
+      thresholds: [2, 4, 6, 8, 10],
+      accent: "#8B5CF6",
+      icon: "languages",
+    },
+    {
+      label: `Active ${recentActivityWindowDays}d`,
+      value: activeRecent,
+      displayValue: formatCompactNumber(activeRecent),
+      hint: "Repos updated in the recent window",
+      thresholds: [1, 3, 5, 8, 12],
+      accent: "#22C55E",
+      icon: "activity",
+    },
+    {
+      label: "Top Repo Star",
+      value: topRepository?.stargazers_count ?? 0,
+      displayValue: formatCompactNumber(topRepository?.stargazers_count ?? 0),
+      hint: topRepository?.name
+        ? `Most-starred repo: ${topRepository.name}`
+        : "Most-starred repo will appear here",
+      thresholds: [1, 5, 10, 25, 50],
+      accent: "#EC4899",
+      icon: "crown",
+    },
+  ].map((metric) => ({
+    ...metric,
+    rank: rankMetric(metric.value, metric.thresholds),
+    progress: metricProgress(metric.value, metric.thresholds),
+    status: metricStatus(metric.value, metric.thresholds),
+  }));
+}
+
+function buildMetricIcon(icon, accent) {
+  switch (icon) {
+    case "followers":
+      return `
+        <g fill="none" stroke="${accent}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="14" cy="15" r="4.5" />
+          <circle cx="27" cy="17" r="3.5" />
+          <path d="M7.5 29c1.4-4.4 5.4-6.8 10.1-6.8 4.7 0 8.4 2.2 9.6 6.8" />
+          <path d="M23 29c1.1-2.9 3.6-4.8 6.9-4.8 1.8 0 3.5.6 4.9 1.8" />
+        </g>`;
+    case "repositories":
+      return `
+        <g fill="none" stroke="${accent}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 14.5h9.2l3.4 3.9H31a3.5 3.5 0 0 1 3.5 3.5v8.8A3.5 3.5 0 0 1 31 34.2H9A3.5 3.5 0 0 1 5.5 30.7V18a3.5 3.5 0 0 1 3.5-3.5z" />
+          <path d="M5.8 21h28.4" />
+        </g>`;
+    case "stars":
+      return `
+        <polygon points="20,5 24.7,14.4 35,15.9 27.5,23.1 29.3,33.2 20,28.3 10.7,33.2 12.5,23.1 5,15.9 15.3,14.4" fill="${accent}" />`;
+    case "forks":
+      return `
+        <g fill="none" stroke="${accent}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="10" r="3.2" />
+          <circle cx="28" cy="18" r="3.2" />
+          <circle cx="12" cy="30" r="3.2" />
+          <path d="M12 13.2v13.6" />
+          <path d="M15.3 11.5h6.2a6.5 6.5 0 0 1 6.5 6.5" />
+        </g>`;
+    case "languages":
+      return `
+        <g fill="none" stroke="${accent}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13 12L6 20l7 8" />
+          <path d="M27 12l7 8-7 8" />
+          <path d="M22 9l-4 22" />
+        </g>`;
+    case "activity":
+      return `
+        <g fill="none" stroke="${accent}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5.5 23h7l3.1-8.2 5.1 15 4.2-10.2h9.6" />
+        </g>`;
+    case "crown":
+      return `
+        <g fill="none" stroke="${accent}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6.5 28.5L9.3 13l10.2 8 7.2-11 7.2 11 10.1-8 2.8 15.5H6.5z" />
+          <path d="M10.5 32.5h31" />
+        </g>`;
+    default:
+      return `
+        <polygon points="20,5 24.7,14.4 35,15.9 27.5,23.1 29.3,33.2 20,28.3 10.7,33.2 12.5,23.1 5,15.9 15.3,14.4" fill="${accent}" />`;
+  }
+}
+
+function buildCard(metric, x, y, index, width, height) {
+  const hintY = 120;
+  const barX = 20;
+  const barY = height - 36;
+  const barWidth = width - 40;
+  const barFillWidth = Math.max(12, Math.round(barWidth * metric.progress));
+  const statusY = height - 14;
+  const rankStyle = rankPalette(metric.rank);
+
+  return `
+    <g transform="translate(${x} ${y})">
+      <rect x="0" y="0" width="${width}" height="${height}" rx="24" fill="url(#card-bg-${index})" stroke="${metric.accent}" stroke-opacity="0.22" />
+      <circle cx="34" cy="34" r="18" fill="${metric.accent}" fill-opacity="0.16" />
+      <circle cx="34" cy="34" r="17.2" fill="none" stroke="${metric.accent}" stroke-opacity="0.35" />
+      <g transform="translate(14 14)">
+        ${buildMetricIcon(metric.icon, metric.accent)}
+      </g>
+      <rect x="${width - 58}" y="16" width="40" height="24" rx="12" fill="${rankStyle.fill}" />
+      <text x="${width - 38}" y="31" text-anchor="middle" font-size="11" font-weight="800" fill="${rankStyle.text}">${escapeXml(metric.rank)}</text>
+      <text x="18" y="68" font-size="11" font-weight="700" fill="#93C5FD" letter-spacing="0.8">${escapeXml(metric.label.toUpperCase())}</text>
+      <text x="18" y="104" font-size="31" font-weight="800" fill="#F8FAFC">${escapeXml(metric.displayValue)}</text>
+      <text x="18" y="${hintY}" font-size="11" fill="#94A3B8">${escapeXml(truncateText(metric.hint, 32))}</text>
+      <rect x="${barX}" y="${barY}" width="${barWidth}" height="9" rx="4.5" fill="#0B1220" fill-opacity="0.82" />
+      <rect x="${barX}" y="${barY}" width="${barFillWidth}" height="9" rx="4.5" fill="${metric.accent}" />
+      <text x="18" y="${statusY}" font-size="10" font-weight="700" fill="${rankStyle.fill}">${escapeXml(metric.status)}</text>
+    </g>`;
+}
+
+function getTrophyRowSizes(count) {
+  if (count <= 3) return [count];
+  if (count === 4) return [2, 2];
+  if (count === 5) return [2, 3];
+  if (count === 6) return [3, 3];
+  if (count === 7) return [2, 3, 2];
+
+  const firstRow = Math.ceil(count / 3);
+  const remaining = count - firstRow;
+  const secondRow = Math.ceil(remaining / 2);
+  const thirdRow = remaining - secondRow;
+  return [firstRow, secondRow, thirdRow].filter((size) => size > 0);
+}
+
+function buildTrophySvg(username, user, repositories) {
+  const metrics = buildTrophyMetrics(user, repositories);
+  const width = 900;
+  const cardWidth = 220;
+  const cardHeight = 170;
+  const gap = 26;
+  const rowGap = 26;
+  const contentTop = 140;
+  const footerSpace = 58;
+  const rowSizes = getTrophyRowSizes(metrics.length);
+  const totalCardHeight =
+    rowSizes.length * cardHeight + (rowSizes.length - 1) * rowGap;
+  const height = contentTop + totalCardHeight + footerSpace;
+  const gradients = metrics
+    .map(
+      (metric, index) => `
+      <linearGradient id="card-bg-${index}" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#111C2F" />
+        <stop offset="100%" stop-color="${metric.accent}" stop-opacity="0.16" />
+      </linearGradient>`,
+    )
+    .join("");
+  const cards = [];
+  let metricIndex = 0;
+
+  rowSizes.forEach((rowSize, rowIndex) => {
+    const rowWidth = rowSize * cardWidth + (rowSize - 1) * gap;
+    const rowX = Math.round((width - rowWidth) / 2);
+    const rowY = contentTop + rowIndex * (cardHeight + rowGap);
+
+    for (let columnIndex = 0; columnIndex < rowSize; columnIndex += 1) {
+      const metric = metrics[metricIndex];
+      if (!metric) {
+        break;
+      }
+
+      const x = rowX + columnIndex * (cardWidth + gap);
+      cards.push(buildCard(metric, x, rowY, metricIndex, cardWidth, cardHeight));
+      metricIndex += 1;
+    }
+  });
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title desc">
+  <title id="title">${escapeXml(username)} GitHub trophy board</title>
+  <desc id="desc">Auto-generated GitHub achievement cards based on public profile metrics.</desc>
+  <defs>
+    <linearGradient id="board-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#081120" />
+      <stop offset="52%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="header-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="50%" stop-color="#60A5FA" />
+      <stop offset="100%" stop-color="#22C55E" />
+    </linearGradient>
+    <linearGradient id="trophy-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+    ${gradients}
+  </defs>
+  <rect x="0" y="0" width="${width}" height="${height}" rx="34" fill="url(#board-bg)" />
+  <circle cx="120" cy="36" r="110" fill="#0EA5E9" fill-opacity="0.09" />
+  <circle cx="804" cy="${height - 78}" r="132" fill="#2563EB" fill-opacity="0.08" />
+  <circle cx="748" cy="58" r="90" fill="#22C55E" fill-opacity="0.06" />
+  <rect x="28" y="28" width="${width - 56}" height="${height - 56}" rx="28" fill="none" stroke="#38BDF8" stroke-opacity="0.16" />
+  <g font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif">
+    <text x="42" y="56" font-size="14" font-weight="700" fill="#38BDF8" letter-spacing="1.4">AUTO-UPDATED LOCAL TROPHIES</text>
+    <text x="42" y="88" font-size="30" font-weight="800" fill="#F8FAFC">GitHub Trophy Vault</text>
+    <text x="42" y="108" font-size="13" fill="#94A3B8">@${escapeXml(username)} | sourced from public GitHub API</text>
+    <rect x="42" y="120" width="250" height="4" rx="2" fill="url(#header-glow)" fill-opacity="0.92" />
+    <g transform="translate(800 70)">
+      <path d="M-22 -18h44v11c0 17-10 31-22 36-12-5-22-19-22-36v-11z" fill="url(#trophy-gold)" />
+      <path d="M-34 -12c0 10 5 18 12 21" fill="none" stroke="#FCD34D" stroke-width="5" stroke-linecap="round" />
+      <path d="M34 -12c0 10-5 18-12 21" fill="none" stroke="#FCD34D" stroke-width="5" stroke-linecap="round" />
+      <rect x="-10" y="20" width="20" height="12" rx="3" fill="#F59E0B" />
+      <rect x="-20" y="30" width="40" height="10" rx="4" fill="#B45309" />
+    </g>
+    ${cards.join("")}
+    <text x="42" y="${height - 28}" font-size="12" fill="#64748B">Self-healing trophy asset. No external trophy dependency required.</text>
+  </g>
+</svg>
+`;
+}
+
 async function main() {
+  const user = await fetchUserProfile(owner);
   const repositories = await fetchRepositories(owner);
   const recentRepositories = repositories.slice(0, recentRepoLimit);
   const recentTable = buildRecentReposTable(recentRepositories);
   const languageSnapshot = buildLanguageSnapshot(repositories);
 
   const readme = await readFile(README_PATH, "utf8");
-  let updated = replaceBlock(
+  let updated = readme;
+  let readmeChanged = false;
+
+  const recentBlock = replaceBlock(
     readme,
     RECENT_REPOS_START_MARKER,
     RECENT_REPOS_END_MARKER,
     recentTable,
   );
-  updated = replaceBlock(
+  if (recentBlock.replaced) {
+    updated = recentBlock.content;
+    readmeChanged = true;
+  } else {
+    console.warn(
+      `Skipping recent repository update because ${RECENT_REPOS_START_MARKER} markers were not found.`,
+    );
+  }
+
+  const languageBlock = replaceBlock(
     updated,
     LANGUAGE_SNAPSHOT_START_MARKER,
     LANGUAGE_SNAPSHOT_END_MARKER,
     languageSnapshot,
   );
+  if (languageBlock.replaced) {
+    updated = languageBlock.content;
+    readmeChanged = true;
+  } else {
+    console.warn(
+      `Skipping language snapshot update because ${LANGUAGE_SNAPSHOT_START_MARKER} markers were not found.`,
+    );
+  }
 
-  await writeFile(README_PATH, updated, "utf8");
+  let trophyUpdated = false;
+  const trophySvg = buildTrophySvg(owner, user, repositories);
+  const trophyVersion = createAssetVersion(trophySvg);
+  trophyUpdated = await writeTextIfChanged(TROPHY_ASSET_PATH, trophySvg);
+
+  const trophyBlock = replaceBlock(
+    updated,
+    TROPHY_IMAGE_START_MARKER,
+    TROPHY_IMAGE_END_MARKER,
+    buildTrophyImageMarkup(trophyVersion),
+  );
+
+  if (trophyBlock.replaced) {
+    if (trophyBlock.content !== updated) {
+      updated = trophyBlock.content;
+      readmeChanged = true;
+    }
+  } else {
+    console.warn(
+      `Skipping trophy README refresh because ${TROPHY_IMAGE_START_MARKER} markers were not found.`,
+    );
+  }
+
+  if (readmeChanged) {
+    await writeFile(README_PATH, updated, "utf8");
+  }
   console.log(
-    `Updated ${README_PATH} for ${owner}: ${recentRepositories.length} recent repos and ${repositories.length} analyzed repositories.`,
+    `Profile refresh complete for ${owner}: ${recentRepositories.length} recent repos, ${repositories.length} analyzed repositories, trophy ${trophyUpdated ? "updated" : "unchanged"}.`,
   );
 }
 

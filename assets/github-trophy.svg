@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="760" viewBox="0 0 900 760" role="img" aria-labelledby="title desc">
+  <title id="title">ravano-2464 GitHub trophy board</title>
+  <desc id="desc">Auto-generated GitHub achievement cards based on public profile metrics.</desc>
+  <defs>
+    <linearGradient id="board-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#081120" />
+      <stop offset="52%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="header-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="50%" stop-color="#60A5FA" />
+      <stop offset="100%" stop-color="#22C55E" />
+    </linearGradient>
+    <linearGradient id="trophy-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+    
+      <linearGradient id="card-bg-0" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#111C2F" />
+        <stop offset="100%" stop-color="#2563EB" stop-opacity="0.16" />
+      </linearGradient>
+      <linearGradient id="card-bg-1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#111C2F" />
+        <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0.16" />
+      </linearGradient>
+      <linearGradient id="card-bg-2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#111C2F" />
+        <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.16" />
+      </linearGradient>
+      <linearGradient id="card-bg-3" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#111C2F" />
+        <stop offset="100%" stop-color="#14B8A6" stop-opacity="0.16" />
+      </linearGradient>
+      <linearGradient id="card-bg-4" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#111C2F" />
+        <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.16" />
+      </linearGradient>
+      <linearGradient id="card-bg-5" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#111C2F" />
+        <stop offset="100%" stop-color="#22C55E" stop-opacity="0.16" />
+      </linearGradient>
+      <linearGradient id="card-bg-6" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#111C2F" />
+        <stop offset="100%" stop-color="#EC4899" stop-opacity="0.16" />
+      </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="900" height="760" rx="34" fill="url(#board-bg)" />
+  <circle cx="120" cy="36" r="110" fill="#0EA5E9" fill-opacity="0.09" />
+  <circle cx="804" cy="682" r="132" fill="#2563EB" fill-opacity="0.08" />
+  <circle cx="748" cy="58" r="90" fill="#22C55E" fill-opacity="0.06" />
+  <rect x="28" y="28" width="844" height="704" rx="28" fill="none" stroke="#38BDF8" stroke-opacity="0.16" />
+  <g font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif">
+    <text x="42" y="56" font-size="14" font-weight="700" fill="#38BDF8" letter-spacing="1.4">AUTO-UPDATED LOCAL TROPHIES</text>
+    <text x="42" y="88" font-size="30" font-weight="800" fill="#F8FAFC">GitHub Trophy Vault</text>
+    <text x="42" y="108" font-size="13" fill="#94A3B8">@ravano-2464 | sourced from public GitHub API</text>
+    <rect x="42" y="120" width="250" height="4" rx="2" fill="url(#header-glow)" fill-opacity="0.92" />
+    <g transform="translate(800 70)">
+      <path d="M-22 -18h44v11c0 17-10 31-22 36-12-5-22-19-22-36v-11z" fill="url(#trophy-gold)" />
+      <path d="M-34 -12c0 10 5 18 12 21" fill="none" stroke="#FCD34D" stroke-width="5" stroke-linecap="round" />
+      <path d="M34 -12c0 10-5 18-12 21" fill="none" stroke="#FCD34D" stroke-width="5" stroke-linecap="round" />
+      <rect x="-10" y="20" width="20" height="12" rx="3" fill="#F59E0B" />
+      <rect x="-20" y="30" width="40" height="10" rx="4" fill="#B45309" />
+    </g>
+    
+    <g transform="translate(217 140)">
+      <rect x="0" y="0" width="220" height="170" rx="24" fill="url(#card-bg-0)" stroke="#2563EB" stroke-opacity="0.22" />
+      <circle cx="34" cy="34" r="18" fill="#2563EB" fill-opacity="0.16" />
+      <circle cx="34" cy="34" r="17.2" fill="none" stroke="#2563EB" stroke-opacity="0.35" />
+      <g transform="translate(14 14)">
+        
+        <g fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="14" cy="15" r="4.5" />
+          <circle cx="27" cy="17" r="3.5" />
+          <path d="M7.5 29c1.4-4.4 5.4-6.8 10.1-6.8 4.7 0 8.4 2.2 9.6 6.8" />
+          <path d="M23 29c1.1-2.9 3.6-4.8 6.9-4.8 1.8 0 3.5.6 4.9 1.8" />
+        </g>
+      </g>
+      <rect x="162" y="16" width="40" height="24" rx="12" fill="#CBD5E1" />
+      <text x="182" y="31" text-anchor="middle" font-size="11" font-weight="800" fill="#0F172A">B</text>
+      <text x="18" y="68" font-size="11" font-weight="700" fill="#93C5FD" letter-spacing="0.8">FOLLOWERS</text>
+      <text x="18" y="104" font-size="31" font-weight="800" fill="#F8FAFC">8</text>
+      <text x="18" y="120" font-size="11" fill="#94A3B8">People following the profile</text>
+      <rect x="20" y="134" width="180" height="9" rx="4.5" fill="#0B1220" fill-opacity="0.82" />
+      <rect x="20" y="134" width="14" height="9" rx="4.5" fill="#2563EB" />
+      <text x="18" y="156" font-size="10" font-weight="700" fill="#CBD5E1">2 TO A</text>
+    </g>
+    <g transform="translate(463 140)">
+      <rect x="0" y="0" width="220" height="170" rx="24" fill="url(#card-bg-1)" stroke="#0EA5E9" stroke-opacity="0.22" />
+      <circle cx="34" cy="34" r="18" fill="#0EA5E9" fill-opacity="0.16" />
+      <circle cx="34" cy="34" r="17.2" fill="none" stroke="#0EA5E9" stroke-opacity="0.35" />
+      <g transform="translate(14 14)">
+        
+        <g fill="none" stroke="#0EA5E9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 14.5h9.2l3.4 3.9H31a3.5 3.5 0 0 1 3.5 3.5v8.8A3.5 3.5 0 0 1 31 34.2H9A3.5 3.5 0 0 1 5.5 30.7V18a3.5 3.5 0 0 1 3.5-3.5z" />
+          <path d="M5.8 21h28.4" />
+        </g>
+      </g>
+      <rect x="162" y="16" width="40" height="24" rx="12" fill="#2DD4BF" />
+      <text x="182" y="31" text-anchor="middle" font-size="11" font-weight="800" fill="#052E2B">S</text>
+      <text x="18" y="68" font-size="11" font-weight="700" fill="#93C5FD" letter-spacing="0.8">REPOSITORIES</text>
+      <text x="18" y="104" font-size="31" font-weight="800" fill="#F8FAFC">59</text>
+      <text x="18" y="120" font-size="11" fill="#94A3B8">Active public repositories</text>
+      <rect x="20" y="134" width="180" height="9" rx="4.5" fill="#0B1220" fill-opacity="0.82" />
+      <rect x="20" y="134" width="142" height="9" rx="4.5" fill="#0EA5E9" />
+      <text x="18" y="156" font-size="10" font-weight="700" fill="#2DD4BF">16 TO SS</text>
+    </g>
+    <g transform="translate(94 336)">
+      <rect x="0" y="0" width="220" height="170" rx="24" fill="url(#card-bg-2)" stroke="#F59E0B" stroke-opacity="0.22" />
+      <circle cx="34" cy="34" r="18" fill="#F59E0B" fill-opacity="0.16" />
+      <circle cx="34" cy="34" r="17.2" fill="none" stroke="#F59E0B" stroke-opacity="0.35" />
+      <g transform="translate(14 14)">
+        
+        <polygon points="20,5 24.7,14.4 35,15.9 27.5,23.1 29.3,33.2 20,28.3 10.7,33.2 12.5,23.1 5,15.9 15.3,14.4" fill="#F59E0B" />
+      </g>
+      <rect x="162" y="16" width="40" height="24" rx="12" fill="#64748B" />
+      <text x="182" y="31" text-anchor="middle" font-size="11" font-weight="800" fill="#F8FAFC">C</text>
+      <text x="18" y="68" font-size="11" font-weight="700" fill="#93C5FD" letter-spacing="0.8">TOTAL STARS</text>
+      <text x="18" y="104" font-size="31" font-weight="800" fill="#F8FAFC">1</text>
+      <text x="18" y="120" font-size="11" fill="#94A3B8">Stars collected across projects</text>
+      <rect x="20" y="134" width="180" height="9" rx="4.5" fill="#0B1220" fill-opacity="0.82" />
+      <rect x="20" y="134" width="12" height="9" rx="4.5" fill="#F59E0B" />
+      <text x="18" y="156" font-size="10" font-weight="700" fill="#64748B">4 TO B</text>
+    </g>
+    <g transform="translate(340 336)">
+      <rect x="0" y="0" width="220" height="170" rx="24" fill="url(#card-bg-3)" stroke="#14B8A6" stroke-opacity="0.22" />
+      <circle cx="34" cy="34" r="18" fill="#14B8A6" fill-opacity="0.16" />
+      <circle cx="34" cy="34" r="17.2" fill="none" stroke="#14B8A6" stroke-opacity="0.35" />
+      <g transform="translate(14 14)">
+        
+        <g fill="none" stroke="#14B8A6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="10" r="3.2" />
+          <circle cx="28" cy="18" r="3.2" />
+          <circle cx="12" cy="30" r="3.2" />
+          <path d="M12 13.2v13.6" />
+          <path d="M15.3 11.5h6.2a6.5 6.5 0 0 1 6.5 6.5" />
+        </g>
+      </g>
+      <rect x="162" y="16" width="40" height="24" rx="12" fill="#64748B" />
+      <text x="182" y="31" text-anchor="middle" font-size="11" font-weight="800" fill="#F8FAFC">C</text>
+      <text x="18" y="68" font-size="11" font-weight="700" fill="#93C5FD" letter-spacing="0.8">TOTAL FORKS</text>
+      <text x="18" y="104" font-size="31" font-weight="800" fill="#F8FAFC">0</text>
+      <text x="18" y="120" font-size="11" fill="#94A3B8">Community forks on public repos</text>
+      <rect x="20" y="134" width="180" height="9" rx="4.5" fill="#0B1220" fill-opacity="0.82" />
+      <rect x="20" y="134" width="12" height="9" rx="4.5" fill="#14B8A6" />
+      <text x="18" y="156" font-size="10" font-weight="700" fill="#64748B">1 TO B</text>
+    </g>
+    <g transform="translate(586 336)">
+      <rect x="0" y="0" width="220" height="170" rx="24" fill="url(#card-bg-4)" stroke="#8B5CF6" stroke-opacity="0.22" />
+      <circle cx="34" cy="34" r="18" fill="#8B5CF6" fill-opacity="0.16" />
+      <circle cx="34" cy="34" r="17.2" fill="none" stroke="#8B5CF6" stroke-opacity="0.35" />
+      <g transform="translate(14 14)">
+        
+        <g fill="none" stroke="#8B5CF6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13 12L6 20l7 8" />
+          <path d="M27 12l7 8-7 8" />
+          <path d="M22 9l-4 22" />
+        </g>
+      </g>
+      <rect x="162" y="16" width="40" height="24" rx="12" fill="#38BDF8" />
+      <text x="182" y="31" text-anchor="middle" font-size="11" font-weight="800" fill="#082F49">AA</text>
+      <text x="18" y="68" font-size="11" font-weight="700" fill="#93C5FD" letter-spacing="0.8">LANGUAGES</text>
+      <text x="18" y="104" font-size="31" font-weight="800" fill="#F8FAFC">7</text>
+      <text x="18" y="120" font-size="11" fill="#94A3B8">Primary languages shipped</text>
+      <rect x="20" y="134" width="180" height="9" rx="4.5" fill="#0B1220" fill-opacity="0.82" />
+      <rect x="20" y="134" width="126" height="9" rx="4.5" fill="#8B5CF6" />
+      <text x="18" y="156" font-size="10" font-weight="700" fill="#38BDF8">1 TO S</text>
+    </g>
+    <g transform="translate(217 532)">
+      <rect x="0" y="0" width="220" height="170" rx="24" fill="url(#card-bg-5)" stroke="#22C55E" stroke-opacity="0.22" />
+      <circle cx="34" cy="34" r="18" fill="#22C55E" fill-opacity="0.16" />
+      <circle cx="34" cy="34" r="17.2" fill="none" stroke="#22C55E" stroke-opacity="0.35" />
+      <g transform="translate(14 14)">
+        
+        <g fill="none" stroke="#22C55E" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5.5 23h7l3.1-8.2 5.1 15 4.2-10.2h9.6" />
+        </g>
+      </g>
+      <rect x="162" y="16" width="40" height="24" rx="12" fill="#FBBF24" />
+      <text x="182" y="31" text-anchor="middle" font-size="11" font-weight="800" fill="#2B1700">SS</text>
+      <text x="18" y="68" font-size="11" font-weight="700" fill="#93C5FD" letter-spacing="0.8">ACTIVE 90D</text>
+      <text x="18" y="104" font-size="31" font-weight="800" fill="#F8FAFC">18</text>
+      <text x="18" y="120" font-size="11" fill="#94A3B8">Repos updated in the recent w...</text>
+      <rect x="20" y="134" width="180" height="9" rx="4.5" fill="#0B1220" fill-opacity="0.82" />
+      <rect x="20" y="134" width="180" height="9" rx="4.5" fill="#22C55E" />
+      <text x="18" y="156" font-size="10" font-weight="700" fill="#FBBF24">MAX TIER UNLOCKED</text>
+    </g>
+    <g transform="translate(463 532)">
+      <rect x="0" y="0" width="220" height="170" rx="24" fill="url(#card-bg-6)" stroke="#EC4899" stroke-opacity="0.22" />
+      <circle cx="34" cy="34" r="18" fill="#EC4899" fill-opacity="0.16" />
+      <circle cx="34" cy="34" r="17.2" fill="none" stroke="#EC4899" stroke-opacity="0.35" />
+      <g transform="translate(14 14)">
+        
+        <g fill="none" stroke="#EC4899" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6.5 28.5L9.3 13l10.2 8 7.2-11 7.2 11 10.1-8 2.8 15.5H6.5z" />
+          <path d="M10.5 32.5h31" />
+        </g>
+      </g>
+      <rect x="162" y="16" width="40" height="24" rx="12" fill="#CBD5E1" />
+      <text x="182" y="31" text-anchor="middle" font-size="11" font-weight="800" fill="#0F172A">B</text>
+      <text x="18" y="68" font-size="11" font-weight="700" fill="#93C5FD" letter-spacing="0.8">TOP REPO STAR</text>
+      <text x="18" y="104" font-size="31" font-weight="800" fill="#F8FAFC">1</text>
+      <text x="18" y="120" font-size="11" fill="#94A3B8">Most-starred repo: HBD-HTML</text>
+      <rect x="20" y="134" width="180" height="9" rx="4.5" fill="#0B1220" fill-opacity="0.82" />
+      <rect x="20" y="134" width="12" height="9" rx="4.5" fill="#EC4899" />
+      <text x="18" y="156" font-size="10" font-weight="700" fill="#CBD5E1">4 TO A</text>
+    </g>
+    <text x="42" y="732" font-size="12" fill="#64748B">Self-healing trophy asset. No external trophy dependency required.</text>
+  </g>
+</svg>

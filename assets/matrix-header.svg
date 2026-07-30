@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 260" width="100%" height="260">
+  <style>
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-300px);
+      }
+      100% {
+        transform: translateY(580px);
+      }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.8; text-shadow: 0 0 8px #00ff00, 0 0 15px #00ff00, 0 0 30px #00ff00; }
+      50% { opacity: 1; text-shadow: 0 0 12px #00ff00, 0 0 25px #00ff00, 0 0 40px #00ff00, 0 0 10px #ffffff; }
+    }
+    @keyframes scanline {
+      0% { transform: translateY(-260px); }
+      100% { transform: translateY(260px); }
+    }
+    .matrix-col {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
+      animation: fall linear infinite;
+    }
+    .glow-text {
+      font-family: 'Fira Code', 'Courier New', Courier, monospace;
+      font-weight: 800;
+      fill: #ffffff;
+      animation: pulse 4s ease-in-out infinite;
+    }
+    .sub-text {
+      font-family: 'Fira Code', 'Courier New', Courier, monospace;
+      fill: #00ff00;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-shadow: 0 0 5px #00ff00;
+    }
+    .border-glow {
+      stroke: #00ff00;
+      stroke-width: 1.5;
+      fill: none;
+      filter: drop-shadow(0 0 3px #00ff00);
+      opacity: 0.7;
+    }
+    </style>
+  <rect width="1000" height="260" fill="#050a05" />
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#003300" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+    <radialGradient id="center-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#020802" stop-opacity="0.95" />
+      <stop offset="45%" stop-color="#020802" stop-opacity="0.8" />
+      <stop offset="80%" stop-color="#020802" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#020802" stop-opacity="0.1" />
+    </radialGradient>
+    <linearGradient id="vertical-fade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#050a05" stop-opacity="1" />
+      <stop offset="15%" stop-color="#050a05" stop-opacity="0" />
+      <stop offset="85%" stop-color="#050a05" stop-opacity="0" />
+      <stop offset="100%" stop-color="#050a05" stop-opacity="1" />
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="260" fill="url(#grid)" />
+  <text class="matrix-col" x="2" y="0" font-size="10" fill="#00ff41" opacity="0.53" style="animation-duration: 2.7s; animation-delay: -6.0s;">ｲ2ﾛｵｲVﾃｷﾉ8ｲF</text>
+  <text class="matrix-col" x="10" y="0" font-size="7" fill="#008f11" opacity="0.25" style="animation-duration: 6.1s; animation-delay: -0.9s;">ｯｵPCﾂﾗﾁｺｯﾄ</text>
+  <text class="matrix-col" x="23" y="0" font-size="15" fill="#39ff14" opacity="0.75" style="animation-duration: 2.2s; animation-delay: -4.0s;">JZｱｫｵBｱﾚﾍ9BKﾅﾉIHJU1ｴｹｯﾆｧｮｳﾍ</text>
+  <text class="matrix-col" x="39" y="0" font-size="7" fill="#008f11" opacity="0.18" style="animation-duration: 5.0s; animation-delay: -9.1s;">ｺﾔﾖﾆｶXｼｩﾍZｴ</text>
+  <text class="matrix-col" x="51" y="0" font-size="7" fill="#008f11" opacity="0.11" style="animation-duration: 4.5s; animation-delay: -10.2s;">V2ﾗ9ﾃﾝ7ﾃ</text>
+  <text class="matrix-col" x="69" y="0" font-size="7" fill="#008f11" opacity="0.18" style="animation-duration: 4.2s; animation-delay: -8.8s;">ｴｵ8ﾜ1ﾕﾐG4ｨOF</text>
+  <text class="matrix-col" x="84" y="0" font-size="14" fill="#39ff14" opacity="0.85" style="animation-duration: 3.2s; animation-delay: -6.2s;">ｨｼｴﾋｧｦﾙOB9ｦﾋWFﾅﾚGﾔｲｳHAｹ</text>
+  <text class="matrix-col" x="90" y="0" font-size="16" fill="#39ff14" opacity="0.73" style="animation-duration: 2.5s; animation-delay: -8.9s;">FｻﾆZｾHIｾHﾝPKｨｷｾﾁBE</text>
+  <text class="matrix-col" x="105" y="0" font-size="9" fill="#008f11" opacity="0.18" style="animation-duration: 4.8s; animation-delay: -0.7s;">BﾍﾗQﾍｮｫﾌ1Aﾏｯﾇ0ﾙ6ｨ</text>
+  <text class="matrix-col" x="121" y="0" font-size="8" fill="#008f11" opacity="0.12" style="animation-duration: 5.9s; animation-delay: -8.8s;">YBPﾕPﾑｩN5ﾋﾙUｩ98</text>
+  <text class="matrix-col" x="137" y="0" font-size="8" fill="#008f11" opacity="0.24" style="animation-duration: 5.6s; animation-delay: -2.1s;">ｦ5ｩ3AXｻﾃIEｬ</text>
+  <text class="matrix-col" x="150" y="0" font-size="15" fill="#39ff14" opacity="0.94" style="animation-duration: 2.8s; animation-delay: -2.7s;">ﾎｸｨXｼ7ﾆｶRﾓｧﾏｽｯ1ﾃVTﾂｼﾘﾗﾝｴIWﾙｸﾙ</text>
+  <text class="matrix-col" x="157" y="0" font-size="7" fill="#008f11" opacity="0.17" style="animation-duration: 4.1s; animation-delay: -6.4s;">I1ｭｹGVﾉﾚ</text>
+  <text class="matrix-col" x="173" y="0" font-size="14" fill="#39ff14" opacity="0.90" style="animation-duration: 3.2s; animation-delay: -5.5s;">ｫｭQGｱﾁYﾀﾚﾚ6Fｽ9ﾝﾆPﾔJZﾙｹﾉ5</text>
+  <text class="matrix-col" x="187" y="0" font-size="12" fill="#00ff41" opacity="0.54" style="animation-duration: 3.7s; animation-delay: -2.4s;">ﾛ0ｬQｶｲ9ｮQﾄｽ9ｪﾘﾈｽｷﾖ3Yﾒｵ</text>
+  <text class="matrix-col" x="195" y="0" font-size="15" fill="#39ff14" opacity="0.92" style="animation-duration: 2.3s; animation-delay: -9.8s;">ｵｱﾖﾒｽｵｨﾇVﾂﾎｵﾀﾌTｪ08ﾊｧ</text>
+  <text class="matrix-col" x="212" y="0" font-size="10" fill="#00ff41" opacity="0.57" style="animation-duration: 2.7s; animation-delay: -4.1s;">ｮｫｧﾙﾛPEﾒE6Sｸ3ｷｷPﾝｪNC</text>
+  <text class="matrix-col" x="227" y="0" font-size="10" fill="#00ff41" opacity="0.54" style="animation-duration: 4.0s; animation-delay: -11.6s;">ｦﾎPｲｺｵｷｱQｴﾖｿﾏｧVﾔ</text>
+  <text class="matrix-col" x="242" y="0" font-size="8" fill="#008f11" opacity="0.10" style="animation-duration: 5.9s; animation-delay: -5.8s;">ROﾍｽI8TｾGM8Tﾓﾜﾉﾈ</text>
+  <text class="matrix-col" x="252" y="0" font-size="11" fill="#00ff41" opacity="0.57" style="animation-duration: 3.9s; animation-delay: -2.2s;">AｮﾚHYｹﾇWJUｩｻ6</text>
+  <text class="matrix-col" x="261" y="0" font-size="7" fill="#008f11" opacity="0.11" style="animation-duration: 5.6s; animation-delay: -8.8s;">Eｾﾊ5ｽﾃZｺGMV</text>
+  <text class="matrix-col" x="283" y="0" font-size="11" fill="#00ff41" opacity="0.36" style="animation-duration: 3.7s; animation-delay: -6.0s;">Bｱ5ﾊｫｧS0AﾐｻQO</text>
+  <text class="matrix-col" x="289" y="0" font-size="12" fill="#00ff41" opacity="0.53" style="animation-duration: 3.0s; animation-delay: -8.2s;">S61ﾍﾁｫｬｯﾃSﾙｲｪSﾙｷ</text>
+  <text class="matrix-col" x="311" y="0" font-size="15" fill="#39ff14" opacity="0.86" style="animation-duration: 2.3s; animation-delay: -2.4s;">9EV0ﾂﾕｮﾌﾏﾄｷｳｽｲ5ﾑIHWｩｵHMｩｬ</text>
+  <text class="matrix-col" x="322" y="0" font-size="12" fill="#00ff41" opacity="0.47" style="animation-duration: 2.9s; animation-delay: -10.4s;">ｧﾄﾋﾆ4ｱ4ﾊYTXQ0ﾂULFLｽ</text>
+  <text class="matrix-col" x="328" y="0" font-size="15" fill="#39ff14" opacity="0.78" style="animation-duration: 2.9s; animation-delay: -11.4s;">ﾛﾄA7DﾚRGMﾒ3ﾅCXQｽPｯDｩNKｧOﾉﾏ</text>
+  <text class="matrix-col" x="342" y="0" font-size="10" fill="#00ff41" opacity="0.49" style="animation-duration: 3.5s; animation-delay: -7.8s;">ﾅｸﾔﾏｭﾓ5ﾏ9ｧﾘ8ﾖGｪﾅOF6Yｽｻ</text>
+  <text class="matrix-col" x="360" y="0" font-size="11" fill="#00ff41" opacity="0.36" style="animation-duration: 3.4s; animation-delay: -11.3s;">ｷﾂO9ﾇｮﾌﾔRｳQｹN</text>
+  <text class="matrix-col" x="377" y="0" font-size="11" fill="#00ff41" opacity="0.54" style="animation-duration: 3.6s; animation-delay: -1.9s;">ｺUｾﾏｿﾅｽﾗIﾈﾅS</text>
+  <text class="matrix-col" x="386" y="0" font-size="15" fill="#39ff14" opacity="0.70" style="animation-duration: 2.1s; animation-delay: -0.6s;">AｶｽｲHｭｪﾖ3DｾｾﾀSｿｼ</text>
+  <text class="matrix-col" x="401" y="0" font-size="8" fill="#008f11" opacity="0.17" style="animation-duration: 5.3s; animation-delay: -7.5s;">Zﾔﾂﾛ8WIQﾁ9ｻｦﾈA</text>
+  <text class="matrix-col" x="412" y="0" font-size="16" fill="#39ff14" opacity="0.73" style="animation-duration: 2.5s; animation-delay: -8.2s;">J3ｾﾁｸ8ｩﾝDﾂJｦｬｸｬAﾑYﾊQﾌ</text>
+  <text class="matrix-col" x="424" y="0" font-size="8" fill="#008f11" opacity="0.23" style="animation-duration: 4.7s; animation-delay: -11.2s;">ﾖWｴGｱﾀﾆﾓLｮ</text>
+  <text class="matrix-col" x="437" y="0" font-size="12" fill="#00ff41" opacity="0.48" style="animation-duration: 4.0s; animation-delay: -3.5s;">GVﾍｳｸﾒRﾚｯTｼﾒﾍNｺ</text>
+  <text class="matrix-col" x="450" y="0" font-size="16" fill="#39ff14" opacity="0.80" style="animation-duration: 2.5s; animation-delay: -1.8s;">ｧJｸﾎKﾕCﾚﾉPﾄｺｸFｿﾚｨVｸNﾊBﾆ</text>
+  <text class="matrix-col" x="464" y="0" font-size="12" fill="#00ff41" opacity="0.50" style="animation-duration: 2.6s; animation-delay: -5.8s;">6ﾂｭｪFｧﾏｬJ2ﾜQKｹﾃｽﾏｾ</text>
+  <text class="matrix-col" x="484" y="0" font-size="7" fill="#008f11" opacity="0.14" style="animation-duration: 6.2s; animation-delay: -9.5s;">Nﾌ9TAZ8ｭｪﾏIｷ5Nﾋ</text>
+  <text class="matrix-col" x="489" y="0" font-size="10" fill="#00ff41" opacity="0.46" style="animation-duration: 3.2s; animation-delay: -11.2s;">UｶZﾂｽﾈﾁAﾀHｺ6</text>
+  <text class="matrix-col" x="508" y="0" font-size="16" fill="#39ff14" opacity="0.71" style="animation-duration: 2.9s; animation-delay: -1.9s;">ｫｬﾔﾉｴｩﾖﾖﾚﾎﾏｾｦDG4ﾚGXﾗｲｭ7ﾀ</text>
+  <text class="matrix-col" x="523" y="0" font-size="13" fill="#39ff14" opacity="0.80" style="animation-duration: 2.0s; animation-delay: -3.4s;">XﾝｹﾗﾍIOｩﾕ3ﾘSXﾎｴ4ﾏQﾏﾑﾊ</text>
+  <text class="matrix-col" x="532" y="0" font-size="15" fill="#39ff14" opacity="0.90" style="animation-duration: 1.9s; animation-delay: -6.7s;">ｳﾐｼAｯｩﾇﾊﾒIﾎﾈ5ｾﾛﾑ</text>
+  <text class="matrix-col" x="548" y="0" font-size="11" fill="#00ff41" opacity="0.41" style="animation-duration: 3.4s; animation-delay: -11.0s;">ﾑﾛ5ｪｫXFｾﾝOUｫﾆ4</text>
+  <text class="matrix-col" x="557" y="0" font-size="15" fill="#39ff14" opacity="0.83" style="animation-duration: 2.9s; animation-delay: -6.1s;">ｻｫIAｯ97LﾎｶMﾒﾎｱMXｼ5</text>
+  <text class="matrix-col" x="578" y="0" font-size="9" fill="#008f11" opacity="0.14" style="animation-duration: 4.7s; animation-delay: -1.3s;">ﾖｦSﾏｸﾋｴOｼHｽLﾕｶ</text>
+  <text class="matrix-col" x="585" y="0" font-size="12" fill="#00ff41" opacity="0.45" style="animation-duration: 3.7s; animation-delay: -11.8s;">RFﾚﾅ9ﾍﾛ18ﾐﾚｴ1Gｮ</text>
+  <text class="matrix-col" x="595" y="0" font-size="8" fill="#008f11" opacity="0.11" style="animation-duration: 4.0s; animation-delay: -10.8s;">ﾚﾉｭﾅWｻﾒWｩｩﾀﾜﾂﾓｼﾜ</text>
+  <text class="matrix-col" x="615" y="0" font-size="7" fill="#008f11" opacity="0.15" style="animation-duration: 5.3s; animation-delay: -7.9s;">QｺﾚLFｷﾀﾐﾉｮM5ｷﾔ</text>
+  <text class="matrix-col" x="627" y="0" font-size="9" fill="#008f11" opacity="0.24" style="animation-duration: 4.4s; animation-delay: -5.2s;">ｻｲｽｶMHOｬDｴC</text>
+  <text class="matrix-col" x="644" y="0" font-size="15" fill="#39ff14" opacity="0.75" style="animation-duration: 2.7s; animation-delay: -6.5s;">ｪOｩ4ﾉｲｵ4ﾕｳｭｽｮLﾛﾓｧﾗﾑFﾚﾁﾉﾁU</text>
+  <text class="matrix-col" x="652" y="0" font-size="13" fill="#39ff14" opacity="0.95" style="animation-duration: 2.2s; animation-delay: -6.4s;">ｫAFﾃｨｾﾔｶｻ8P018ﾊJ9NHｽLHｵ2ﾛﾔﾁﾈO</text>
+  <text class="matrix-col" x="669" y="0" font-size="9" fill="#008f11" opacity="0.22" style="animation-duration: 4.5s; animation-delay: -5.5s;">ｵﾆVｬｾDﾊﾀﾒMHｩｼPRｧ</text>
+  <text class="matrix-col" x="684" y="0" font-size="9" fill="#008f11" opacity="0.12" style="animation-duration: 4.1s; animation-delay: -0.9s;">ｧﾄｷQｭｽBｩｼｺｾY</text>
+  <text class="matrix-col" x="696" y="0" font-size="12" fill="#00ff41" opacity="0.54" style="animation-duration: 3.7s; animation-delay: -9.7s;">ｮﾌDTﾏ6ﾒZｺ8ﾃﾚｼｳﾃﾅ</text>
+  <text class="matrix-col" x="703" y="0" font-size="8" fill="#008f11" opacity="0.24" style="animation-duration: 5.3s; animation-delay: -11.7s;">ｲ0XﾚﾖｦﾎDﾐｪﾐﾏﾌ</text>
+  <text class="matrix-col" x="719" y="0" font-size="12" fill="#00ff41" opacity="0.59" style="animation-duration: 3.2s; animation-delay: -11.6s;">ﾜﾁﾝｼTTﾖｹｯｼｻG4ｪﾓOS</text>
+  <text class="matrix-col" x="731" y="0" font-size="9" fill="#008f11" opacity="0.12" style="animation-duration: 4.7s; animation-delay: -11.3s;">ﾊDﾚﾄｪRNOD</text>
+  <text class="matrix-col" x="751" y="0" font-size="7" fill="#008f11" opacity="0.15" style="animation-duration: 5.5s; animation-delay: -8.8s;">3ﾉ5RﾈﾅDBｭｺR7HW8J</text>
+  <text class="matrix-col" x="762" y="0" font-size="8" fill="#008f11" opacity="0.21" style="animation-duration: 6.6s; animation-delay: -11.8s;">ﾉFQ51ﾊMｭW5ﾓ9ﾎｸ</text>
+  <text class="matrix-col" x="776" y="0" font-size="15" fill="#39ff14" opacity="0.90" style="animation-duration: 2.6s; animation-delay: -4.2s;">ｦｺﾙﾇｦﾒｱﾎｾｪS3Qﾈｻ5Vﾂｯﾕｿｧ</text>
+  <text class="matrix-col" x="781" y="0" font-size="11" fill="#00ff41" opacity="0.46" style="animation-duration: 4.2s; animation-delay: -6.5s;">Tｺ0ｬ34NﾛXﾗﾑOｬ</text>
+  <text class="matrix-col" x="799" y="0" font-size="11" fill="#00ff41" opacity="0.53" style="animation-duration: 3.4s; animation-delay: -1.5s;">ｪ6ｪHGﾗｮｻ6ｭﾐﾄIｼﾖ</text>
+  <text class="matrix-col" x="809" y="0" font-size="7" fill="#008f11" opacity="0.14" style="animation-duration: 4.9s; animation-delay: -0.2s;">ｧCRﾊｨｴｳﾈﾁSﾕMﾇ</text>
+  <text class="matrix-col" x="821" y="0" font-size="9" fill="#008f11" opacity="0.25" style="animation-duration: 4.3s; animation-delay: -7.3s;">ｳVﾙﾔXDY3</text>
+  <text class="matrix-col" x="840" y="0" font-size="10" fill="#00ff41" opacity="0.42" style="animation-duration: 2.8s; animation-delay: -8.0s;">FｳﾎｾﾇﾜRQ9RTCEﾒｸIWMﾕﾇ0Uﾒ</text>
+  <text class="matrix-col" x="849" y="0" font-size="7" fill="#008f11" opacity="0.23" style="animation-duration: 4.0s; animation-delay: -1.6s;">ﾏﾖｨQWｷZﾝﾗｿ</text>
+  <text class="matrix-col" x="862" y="0" font-size="12" fill="#00ff41" opacity="0.46" style="animation-duration: 3.4s; animation-delay: -3.4s;">IﾋB36ｪｾﾂUｿｿ4ｷVﾆﾂ</text>
+  <text class="matrix-col" x="881" y="0" font-size="11" fill="#00ff41" opacity="0.48" style="animation-duration: 3.4s; animation-delay: -10.8s;">ﾂQCI8BCLWUYｦﾂｳ6ｫ1</text>
+  <text class="matrix-col" x="891" y="0" font-size="8" fill="#008f11" opacity="0.18" style="animation-duration: 4.9s; animation-delay: -7.4s;">ｼJ9K6ﾏ4Zｬｧ2ﾈZM3ﾆｺ</text>
+  <text class="matrix-col" x="908" y="0" font-size="15" fill="#39ff14" opacity="0.76" style="animation-duration: 2.9s; animation-delay: -6.0s;">Kﾃｱ1ﾄﾝ3ﾓﾑﾐﾙｧﾓﾁｸB0ﾕｼ</text>
+  <text class="matrix-col" x="922" y="0" font-size="8" fill="#008f11" opacity="0.14" style="animation-duration: 5.2s; animation-delay: -3.0s;">ﾝﾜY7ｯｵFﾄ2Zﾆﾄ05</text>
+  <text class="matrix-col" x="930" y="0" font-size="14" fill="#39ff14" opacity="0.94" style="animation-duration: 2.2s; animation-delay: -4.2s;">RTﾍEｧFﾖｽｩKFDWﾔｾﾝMﾎ2ﾑｫｭ0ﾐｽﾏｺ8</text>
+  <text class="matrix-col" x="944" y="0" font-size="13" fill="#39ff14" opacity="0.88" style="animation-duration: 2.3s; animation-delay: -2.1s;">23ﾉﾘOﾌﾐC9ﾁﾃSﾌJｪﾗｳPﾏﾋZWﾄJﾒﾀｺ</text>
+  <text class="matrix-col" x="958" y="0" font-size="12" fill="#00ff41" opacity="0.38" style="animation-duration: 2.8s; animation-delay: -1.4s;">ﾐﾋｩﾄ7OR09ﾒﾉﾅｺT7ﾁﾜﾋｪ</text>
+  <text class="matrix-col" x="973" y="0" font-size="9" fill="#008f11" opacity="0.17" style="animation-duration: 6.3s; animation-delay: -0.7s;">3ﾛNﾕﾌE7ｮEFﾁﾉﾅBﾏｸﾍ</text>
+  <text class="matrix-col" x="990" y="0" font-size="7" fill="#008f11" opacity="0.24" style="animation-duration: 5.7s; animation-delay: -9.9s;">ﾎｴDTｻｳQSｪﾋVﾏFｺﾒQﾘ</text>
+  <rect width="1000" height="260" fill="url(#vertical-fade)" pointer-events="none" />
+  <rect x="150" y="30" width="700" height="200" fill="url(#center-glow)" pointer-events="none" />
+  <g transform="translate(250, 65)">
+    <path d="M 0 25 L 0 0 L 25 0" class="border-glow" />
+    <path d="M 500 25 L 500 0 L 475 0" class="border-glow" />
+    <path d="M 0 105 L 0 130 L 25 130" class="border-glow" />
+    <path d="M 500 105 L 500 130 L 475 130" class="border-glow" />
+  </g>
+  <text x="500" y="135" class="glow-text" font-size="42" text-anchor="middle">RAVANO AKBAR WIDODO</text>
+  <text x="500" y="175" class="sub-text" font-size="14" text-anchor="middle">FULL STACK DEVELOPER | AI PRODUCT BUILDER | SECURITY FOCUS</text>
+  <text x="270" y="85" font-family="monospace" font-size="9" fill="#00ff00" opacity="0.5">SYS.STATUS: ACTIVE</text>
+  <text x="660" y="85" font-family="monospace" font-size="9" fill="#00ff00" opacity="0.5" text-anchor="end">LOC: JKTA.IDN // 2026</text>
+</svg>

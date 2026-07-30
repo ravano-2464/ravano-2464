@@ -9,6 +9,7 @@ on:
       - main
       - master
     paths:
+      - README.md
       - .github/scripts/update-recent-repos.mjs
       - .github/workflows/update-recent-repos.yml
 
@@ -38,4 +39,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(readme): update profile metrics"
-          file_pattern: README.md
+          file_pattern: README.md assets/github-trophy.svg

@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=260&color=0:0b1220,50:1d4ed8,100:06b6d4&text=Ravano%20Akbar%20Widodo&fontSize=44&fontColor=ffffff&fontAlignY=38&desc=Full%20Stack%20Developer%20%7C%20AI%20Product%20Builder%20%7C%20Security%20Focused&descAlignY=60&animation=fadeIn" width="100%" alt="Header" />
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2600&pause=900&color=38BDF8&center=true&vCenter=true&repeat=true&width=980&lines=Designing+scalable+SaaS+systems+with+clean+architecture;Shipping+AI-powered+products+that+solve+real+problems;Building+developer+tools+with+security-first+engineering" alt="Typing SVG" />
+  <img src="./assets/matrix-header.svg" width="100%" alt="Header" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2600&pause=900&color=39FF14&center=true&vCenter=true&repeat=true&width=980&lines=Designing+scalable+SaaS+systems+with+clean+architecture;Shipping+AI-powered+products+that+solve+real+problems;Building+developer+tools+with+security-first+engineering" alt="Typing SVG" />
 </div>
 
 <div align="center">
@@ -208,12 +208,46 @@ From architecture design to deployment pipelines, I prioritize clean boundaries,
   </tr>
 </table>
 
+### Auto-Updated Repository Pulse
+
+<!-- RECENT_REPOS:START -->
+| Repository | Main Language | Last Update |
+|---|---|---|
+| [VeriText](https://github.com/ravano-2464/VeriText) | TypeScript | 21 May 2026 |
+| [Keyboard-Auto-Clicker](https://github.com/ravano-2464/Keyboard-Auto-Clicker) | JavaScript | 20 May 2026 |
+| [Sonara-Web-Apps](https://github.com/ravano-2464/Sonara-Web-Apps) | TypeScript | 20 May 2026 |
+| [Media-Forge](https://github.com/ravano-2464/Media-Forge) | TypeScript | 18 May 2026 |
+| [Ultimate-SaaS-Boilerplate](https://github.com/ravano-2464/Ultimate-SaaS-Boilerplate) | TypeScript | 12 May 2026 |
+| [CatatUangku](https://github.com/ravano-2464/CatatUangku) | TypeScript | 26 April 2026 |
+| [Personal-Portfolio](https://github.com/ravano-2464/Personal-Portfolio) | TypeScript | 25 April 2026 |
+<!-- RECENT_REPOS:END -->
+
 ## 📊 GitHub Analytics
 
 <div align="center">
   <img height="170" src="https://github-readme-stats-sigma-five.vercel.app/api?username=ravano-2464&show_icons=true&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&icon_color=58a6ff" alt="GitHub Stats" />
   <img height="170" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=ravano-2464&layout=compact&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9" alt="Top Languages" />
 </div>
+
+### Auto-Updated Language Snapshot
+
+<!-- LANGUAGE_SNAPSHOT:START -->
+_Automatically generated from active, non-fork public repositories. Counts represent each repository's primary language._
+
+<p align="left">
+  <img src="https://img.shields.io/badge/TypeScript-20%20repos-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/HTML-14%20repos-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
+  <img src="https://img.shields.io/badge/Java-9%20repos-007396?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
+  <img src="https://img.shields.io/badge/Handlebars-6%20repos-6E7781?style=for-the-badge&logo=github&logoColor=white" alt="Handlebars" />
+  <img src="https://img.shields.io/badge/JavaScript-6%20repos-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000000" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/Python-2%20repos-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+</p>
+
+- **Frontend repositories:** 45
+- **Backend repositories:** 13
+- **Other or mixed repositories:** 1
+- **Total repositories analyzed:** 59
+<!-- LANGUAGE_SNAPSHOT:END -->
 
 <div align="center">
   <img src="https://streak-stats.demolab.com?user=ravano-2464&theme=github-dark-blue&hide_border=true" alt="GitHub Streak" />
@@ -311,7 +345,9 @@ From architecture design to deployment pipelines, I prioritize clean boundaries,
 ## 🏆 Achievements
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=ravano-2464&theme=algolia&no-frame=true&no-bg=true&margin-w=8&row=1&column=7" alt="GitHub Trophy" />
+  <!-- TROPHY_IMAGE:START -->
+<img src="./assets/github-trophy.svg?v=325eadc9cf4d" width="98%" alt="GitHub Trophy" />
+<!-- TROPHY_IMAGE:END -->
 </div>
 
 <table>
