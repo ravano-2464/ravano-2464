@@ -347,7 +347,7 @@ _Automatically generated from active, non-fork public repositories. Counts repre
 
 <div align="center">
   <!-- TROPHY_IMAGE:START -->
-<img src="./assets/github-trophy.svg?v=3fd9b27dfac2" width="98%" alt="GitHub Trophy" />
+<img src="./assets/github-trophy.svg?v=419095ecf84d" width="98%" alt="GitHub Trophy" />
 <!-- TROPHY_IMAGE:END -->
 </div>
 
