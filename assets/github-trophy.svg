@@ -145,15 +145,15 @@
       
       <!-- Content -->
       <text x="22" y="74" font-size="11" font-weight="700" fill="#A7F3D0" letter-spacing="0.8">REPOSITORIES</text>
-      <text x="22" y="112" font-size="32" font-weight="800" fill="#F8FAFC">60</text>
+      <text x="22" y="112" font-size="32" font-weight="800" fill="#F8FAFC">61</text>
       <text x="22" y="128" font-size="11" fill="#94A3B8">Active public repositories</text>
       
       <!-- Progress Bar -->
       <rect x="22" y="143" width="216" height="7" rx="3.5" fill="#010601" fill-opacity="0.9" stroke="#39ff14" stroke-opacity="0.08" />
-      <rect x="22" y="143" width="173" height="7" rx="3.5" fill="#39ff14" />
+      <rect x="22" y="143" width="176" height="7" rx="3.5" fill="#39ff14" />
       
       <!-- Status Text -->
-      <text x="22" y="167" font-size="10" font-weight="800" fill="#00ff41" opacity="0.9" letter-spacing="0.5">15 TO SS</text>
+      <text x="22" y="167" font-size="10" font-weight="800" fill="#00ff41" opacity="0.9" letter-spacing="0.5">14 TO SS</text>
     </g>
     <g transform="translate(34 351)">
       <!-- Card background with glow drop-shadow -->
@@ -264,20 +264,20 @@
       </g>
       
       <!-- Rank Pill Badge -->
-      <rect x="198" y="20" width="44" height="24" rx="12" fill="#047857" />
-      <text x="220" y="35.5" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff" letter-spacing="0.5">B</text>
+      <rect x="198" y="20" width="44" height="24" rx="12" fill="#059669" />
+      <text x="220" y="35.5" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff" letter-spacing="0.5">A</text>
       
       <!-- Content -->
       <text x="22" y="74" font-size="11" font-weight="700" fill="#A7F3D0" letter-spacing="0.8">ACTIVE 90D</text>
-      <text x="22" y="112" font-size="32" font-weight="800" fill="#F8FAFC">2</text>
+      <text x="22" y="112" font-size="32" font-weight="800" fill="#F8FAFC">3</text>
       <text x="22" y="128" font-size="11" fill="#94A3B8">Repos updated in last 90 days</text>
       
       <!-- Progress Bar -->
       <rect x="22" y="143" width="216" height="7" rx="3.5" fill="#010601" fill-opacity="0.9" stroke="#a7f3d0" stroke-opacity="0.08" />
-      <rect x="22" y="143" width="36" height="7" rx="3.5" fill="#a7f3d0" />
+      <rect x="22" y="143" width="54" height="7" rx="3.5" fill="#a7f3d0" />
       
       <!-- Status Text -->
-      <text x="22" y="167" font-size="10" font-weight="800" fill="#047857" opacity="0.9" letter-spacing="0.5">1 TO A</text>
+      <text x="22" y="167" font-size="10" font-weight="800" fill="#059669" opacity="0.9" letter-spacing="0.5">2 TO AA</text>
     </g>
     <g transform="translate(463 562)">
       <!-- Card background with glow drop-shadow -->
