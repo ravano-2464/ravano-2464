@@ -214,13 +214,13 @@ From architecture design to deployment pipelines, I prioritize clean boundaries,
 <!-- RECENT_REPOS:START -->
 | Repository | Main Language | Last Update |
 |---|---|---|
+| [teraplay](https://github.com/ravano-2464/teraplay) | TypeScript | 14 September 2026 |
 | [Wifi-Sentinel](https://github.com/ravano-2464/Wifi-Sentinel) | JavaScript | 10 September 2026 |
 | [Luraph-Script-Analyzer](https://github.com/ravano-2464/Luraph-Script-Analyzer) | TypeScript | 26 August 2026 |
 | [VeriText-Frontend](https://github.com/ravano-2464/VeriText-Frontend) | TypeScript | 31 July 2026 |
 | [VeriText-Backend](https://github.com/ravano-2464/VeriText-Backend) | TypeScript | 30 July 2026 |
 | [Keyboard-Auto-Clicker](https://github.com/ravano-2464/Keyboard-Auto-Clicker) | JavaScript | 20 May 2026 |
 | [Sonara-Web-Apps](https://github.com/ravano-2464/Sonara-Web-Apps) | TypeScript | 20 May 2026 |
-| [Media-Forge](https://github.com/ravano-2464/Media-Forge) | TypeScript | 18 May 2026 |
 <!-- RECENT_REPOS:END -->
 
 ## 📊 GitHub Analytics
@@ -236,7 +236,7 @@ From architecture design to deployment pipelines, I prioritize clean boundaries,
 _Automatically generated from active, non-fork public repositories. Counts represent each repository's primary language._
 
 <p align="left">
-  <img src="https://img.shields.io/badge/TypeScript-22%20repos-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/TypeScript-23%20repos-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/HTML-14%20repos-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
   <img src="https://img.shields.io/badge/Java-9%20repos-007396?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
   <img src="https://img.shields.io/badge/JavaScript-7%20repos-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000000" alt="JavaScript" />
@@ -244,10 +244,10 @@ _Automatically generated from active, non-fork public repositories. Counts repre
   <img src="https://img.shields.io/badge/Python-2%20repos-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
 </p>
 
-- **Frontend repositories:** 47
+- **Frontend repositories:** 48
 - **Backend repositories:** 14
 - **Other or mixed repositories:** 1
-- **Total repositories analyzed:** 62
+- **Total repositories analyzed:** 63
 <!-- LANGUAGE_SNAPSHOT:END -->
 
 <div align="center">
@@ -347,7 +347,7 @@ _Automatically generated from active, non-fork public repositories. Counts repre
 
 <div align="center">
   <!-- TROPHY_IMAGE:START -->
-<img src="./assets/github-trophy.svg?v=b14b050e2515" width="98%" alt="GitHub Trophy" />
+<img src="./assets/github-trophy.svg?v=a2d0e0629129" width="98%" alt="GitHub Trophy" />
 <!-- TROPHY_IMAGE:END -->
 </div>
 
